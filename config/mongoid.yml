@@ -1,0 +1,28 @@
+defaults: &defaults
+  options:
+    identity_map_enabled: true
+
+development:
+  <<: *defaults
+  sessions:
+    default:
+      hosts:
+        - 42.120.11.41:27017
+      database: wechat_fans_development
+
+test:
+  <<: *defaults
+  sessions:
+    default:
+      hosts:
+        - 127.0.0.1:27017
+      database: wechat_fans_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  sessions:
+    default:
+      hosts:
+        - 10.241.27.99:27017
+      database: wechat_fans

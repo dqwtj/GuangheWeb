@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bootstrap";
+
+.navbar .nav > li > a.btn.btn-info {
+  @extend .btn;
+  @extend .btn-info;
+}
