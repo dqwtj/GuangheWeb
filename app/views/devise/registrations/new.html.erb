@@ -1,0 +1,17 @@
+<div class="container">
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <fieldset class="col-md-6 col-md-offset-3">
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, t("common.register"), :class => "small button", 'data-disable-with' => t("common.submitting") %>
+    <p style="text-align: center; font-size: 12px; color: #999999; margin-bottom: 5px">点击注册表示您已阅读并同意《chuanchang.cc 服务条款》</p>
+  </div>
+  </fieldset>
+<% end %>
+</div>
