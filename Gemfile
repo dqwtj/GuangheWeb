@@ -44,7 +44,14 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-gem 'unicorn'
+# Use thin as the app server in windows environment for alternative
+if RUBY_PLATFORM=~ /win32/
+  gem 'unicorn'
+else
+  gem 'thin'
+end 
+
+
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
