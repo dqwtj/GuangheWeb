@@ -3,7 +3,7 @@ class Apply
   include Mongoid::Timestamps
   
   field :name
-  field :gender
+  field :gender, :type=> String, :default => "男"
   field :email
   field :wechat
   field :douban_url

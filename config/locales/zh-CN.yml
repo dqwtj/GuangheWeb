@@ -14,9 +14,15 @@
         other_url: 个人主页地址
         description: 个人描述
         similar_artist: 相似音乐人
+    options:
+      apply:
+        gender:
+          male: "男"
+          female: "女"
     errors:
       messages:
         blank: "不能为空"
+
       
 
 
