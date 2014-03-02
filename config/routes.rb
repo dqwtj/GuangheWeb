@@ -1,6 +1,4 @@
 WechatFans::Application.routes.draw do
-  devise_for :idols
-  
   root "home#intro"
   
   resources :applies
@@ -14,5 +12,9 @@ WechatFans::Application.routes.draw do
   namespace :wechat do
     
   end
+  
+  devise_for :idols, :path => "account", :controllers => {
+      :registrations => :account
+   }
   
 end

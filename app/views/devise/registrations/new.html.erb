@@ -5,7 +5,9 @@
 
   <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :invite_token, :required => true %>
     <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true, :label => "再次输入密码"%>
   </div>
 
   <div class="form-actions">

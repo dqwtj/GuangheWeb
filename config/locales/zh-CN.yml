@@ -4,6 +4,8 @@ zh-CN:
     gender: 性别
     email: 邮箱
     password: 密码
+    repassword: 再次输入密码
+    invite_token: 邀请码
     wechat: 微信号
     douban_url: 豆瓣小站地址
     wusing_url: "5Sing主页地址"

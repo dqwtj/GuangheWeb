@@ -1,7 +1,21 @@
 class Idol
   include Mongoid::Document
   include Mongoid::Timestamps
+  validates_each :email do |record, attr, value|
+    @apply = Apply.where(:email => value).first
+    if @apply == nil
+      record.errors.add(attr, '您输入的Email不存在，请先申请内测，等我们工作人员联系您后再来注册') 
+    end
+  end
   
+  validate :valid_invite_token
+  
+  def valid_invite_token
+    @apply = Apply.where(invite_token: invite_token).first
+    if @apply == nil
+      errors.add(:invite_token, '您输入的邀请码和Email不匹配，请重新输入') 
+    end
+  end
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -39,10 +53,20 @@ class Idol
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-  
+  field :name
   field :level
   field :exp
   field :balance
+  field :invite_token,  :type => String, :default => ""
+  field :name
+  field :gender, :type=> String, :default => "男"
+  field :wechat
+  field :douban_url
+  field :weibo_url
+  field :wusing_url
+  field :other_url
+  field :description
+  field :similar_artist
   
   has_many :contributions
   has_many :songs
