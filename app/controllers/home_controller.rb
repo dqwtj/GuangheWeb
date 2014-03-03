@@ -8,4 +8,8 @@ class HomeController < ApplicationController
     
   end
   
+  def myself
+    
+  end
+  
 end
