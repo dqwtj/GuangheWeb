@@ -19,6 +19,7 @@ zh-CN:
       name: 歌曲名称
       lyrics: 歌词
       description: 歌曲描述
+      url: 歌曲链接
   options:
     apply:
       gender:

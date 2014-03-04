@@ -6,6 +6,7 @@ class Song
   field :name
   field :lyrics
   field :description
+  field :url
   field :exp
   
   has_many :contributions
