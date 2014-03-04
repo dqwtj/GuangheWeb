@@ -3,6 +3,17 @@
 <fieldset class="col-md-6 col-md-offset-3">
   <%= f.error_notification %>
   <%= f.input :name %>
+  <span class="btn btn-success fileinput-button">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>Select files...</span>
+    <!-- The file input field used as target for the file upload widget -->
+    <input id="fileupload" type="file" name="file">
+  </span>
+  <div id="progress">
+    <div class="bar" style="width: 0%;"></div>
+  </div>
+  <%= hidden_field_tag :upyun_policy, @policy %>
+  <%= hidden_field_tag :upyun_signature, @signature %>
   <%= f.input :url %>
   <%= f.input :description, :as => :text, :input_html => { :rows => "6" }, :placeholder => "讲一讲歌曲的故事"%>
   <%= f.input :lyrics, :as => :text, :input_html => { :rows => "6" } %>
@@ -12,3 +23,34 @@
 </fieldset>
 <% end %>
 </div>
+
+<script>
+/*jslint unparam: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = "http://v0.api.upyun.com/guanghe-file/";
+    var policy = $("#upyun_policy").val();
+    var signature = $("#upyun_signature").val();
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+  		formData : {
+		'policy' : policy,
+		'signature' : signature
+		},
+		method : 'post',
+        success: function (data) {
+            $("#song_url").val(data.url);
+        },
+	    progressall: function (e, data) {
+	        var progress = parseInt(data.loaded / data.total * 100, 10);
+	        $('#progress .bar').css(
+	            'width',
+	            progress + '%'
+	        );
+	    }
+    });
+});
+</script>

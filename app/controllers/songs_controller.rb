@@ -8,13 +8,14 @@ class SongsController < ApplicationController
   
   def new
     @song = current_idol.songs.new
+    @policy = Base64.encode64({:bucket => 'guanghe-file', :expiration => (Time.now().to_i + 3600), 'save-key' => "/sounds/{filemd5}{.suffix}","allow-file-type" =>"mp3,wav","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
+    @signature = Digest::MD5.hexdigest(@policy+'&'+'kP34t27f602TN1hWsVomI0NxTXI=')
   end
   
   def create
-    @apply = Apply.new(params[:apply].permit!)
-    @apply.invite_token = Time.now
-    if @apply.save
-      redirect_to root_path, :notice => "您的申请已经收到，我们的工作人员会尽快与您联系"
+    @song = Song.new(params[:song].permit!)
+    if @song.save
+      redirect_to root_path, :notice => "保存成功"
     else
       render :new
     end
