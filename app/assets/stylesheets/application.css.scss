@@ -18,3 +18,15 @@
   @extend .btn;
   @extend .btn-info;
 }
+
+#notice-panel {
+  text-align: center;
+}
+
+#alert-panel {
+  text-align: center;
+}
+
+fieldset.login-field {
+  margin-top: 50px;
+}

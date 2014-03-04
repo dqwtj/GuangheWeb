@@ -1,0 +1,17 @@
+<div class="container">
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <fieldset class="col-md-6 col-md-offset-3 login-field">
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<%= f.input :email, :required => false, :autofocus => true, :label => false, :placeholder => "请输入注册的邮箱" %>
+  	<%= f.input :password, :required => false, :label => false, :placeholder => "请输入密码" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit '登陆', :class => "btn btn-primary btn-lg btn-block", :disable_with => '登陆中' %>
+    <p style="text-align: center; margin-top: 5px" class="text-muted">没有注册？点击注册</p>
+  </div>
+  </fieldset>
+<% end %>
+</div>

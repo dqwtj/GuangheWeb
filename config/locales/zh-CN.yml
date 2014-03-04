@@ -1,18 +1,25 @@
 zh-CN:
+ mongoid:
   attributes:
-    name: 姓名
-    gender: 性别
-    email: 邮箱
-    password: 密码
-    repassword: 再次输入密码
-    invite_token: 邀请码
-    wechat: 微信号
-    douban_url: 豆瓣小站地址
-    wusing_url: "5Sing主页地址"
-    weibo_url: 微博地址
-    other_url: 个人主页地址
-    description: 个人描述
-    similar_artist: 相似音乐人
+    idol:
+      name: 姓名
+      gender: 性别
+      email: 邮箱
+      password: 密码
+      repassword: 再次输入密码
+      invite_token: 邀请码
+      wechat: 微信号
+      douban_url: 豆瓣小站地址
+      wusing_url: "5Sing主页地址"
+      weibo_url: 微博地址
+      other_url: 个人主页地址
+      description: 个人描述
+      similar_artist: 相似音乐人
+    song:
+      name: 歌曲名称
+      lyrics: 歌词
+      description: 歌曲描述
+      url: 歌曲链接
   options:
     apply:
       gender:

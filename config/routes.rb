@@ -1,7 +1,10 @@
 WechatFans::Application.routes.draw do
   root "home#intro"
   
+  get 'myself' => "home#myself"
+  
   resources :applies
+  resources :songs
 
   namespace :cpanel do
     resources :users
@@ -14,7 +17,7 @@ WechatFans::Application.routes.draw do
   end
   
   devise_for :idols, :path => "account", :controllers => {
-      :registrations => :account
-   }
+    :registrations => :account
+  }
   
 end
