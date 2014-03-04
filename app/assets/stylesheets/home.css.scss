@@ -2,3 +2,32 @@ p.sign-up-info {
   margin: 5px auto;
   text-align: center;
 }
+
+a.myself-header-panel {
+  color: #FFF;
+  height: 150px;
+}
+
+a.myself-header-panel:hover {
+  text-decoration: none
+}
+
+p.myself-header-title {
+  font-size: 36px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p.myself-header-info {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+/* Hack Bootstrap nav btn */
+.nav .open > a.btn-primary {
+  background-color: #428BCA;
+}
+
+

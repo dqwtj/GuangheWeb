@@ -4,6 +4,7 @@ WechatFans::Application.routes.draw do
   get 'myself' => "home#myself"
   
   resources :applies
+  resources :songs
 
   namespace :cpanel do
     resources :users

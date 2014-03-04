@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+	<nav class="navbar navbar-default" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
     	<div class="navbar-header">
@@ -28,12 +28,43 @@
     			<li><a href="#">介绍</a></li>
     			<li><a href="#">服务</a></li>
     			<li><a href="#">关于我们</a></li>
+    			<% if current_idol %>
+    			<li><div class="btn-group">
+    				<%= link_to "我的后台", myself_path, :class => "btn btn-primary navbar-btn"%>
+  					<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown">
+    					<span class="caret"></span>
+    				<span class="sr-only">Toggle Dropdown</span>
+  					</button>
+  					<ul class="dropdown-menu" role="menu">
+    					<li><a href="#">账户设置</a></li>
+    					<li><a href="#">实名认证</a></li>
+    					<li><a href="#">数据统计</a></li>
+    					<li class="divider"></li>
+    					<li><%= link_to "登出", destroy_idol_session_path, :method => :delete, :confirm => "确认要登出吗？" %></li>
+  					</ul>
+				</div></li>
+    			<% else %>
     			<li><%= link_to "申请内测", new_apply_path, :class => "btn btn-info navbar-btn"%></li>
+    			<% end %>
     		</ul>
     	</div>
 	</div>
-</nav>
-<%= yield %>
+	</nav>
+	
+	<div class="container">
+	<% if notice%>
+	<div data-alert class="alert alert-info col-md-6 col-md-offset-3" id="notice-panel">
+		<%= notice %>
+	</div>
+	<% end %>
+	<% if alert %>
+	<div data-alert class="alert alert-danger col-md-6 col-md-offset-3" id="alert-panel">
+		<%= alert %>
+	</div>
+	<% end %>
+	</div>
+	
+	<%= yield %>
 
 </body>
 </html>
