@@ -44,11 +44,13 @@
 				'signature' : signature
 			},
 			method : 'post',
-			success : function(data) {
-				$("#song_url").val(data.url);
+			done : function(data) {
 				$("#upload_label").text("上传完成");
 				$('[name="commit"]').removeAttr('disabled');
 				$('[name="commit"]').val('保存');
+			},
+			success : function(data) {
+				$("#song_url").val(data.url);
 			},
 			progressall : function(e, data) {
 				var progress = parseInt(data.loaded / data.total * 100, 10);
