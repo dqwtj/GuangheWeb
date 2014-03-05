@@ -1,56 +1,64 @@
 <div class="container">
-<%= simple_form_for([@song]) do |f| %>
-<fieldset class="col-md-6 col-md-offset-3">
-  <%= f.error_notification %>
-  <%= f.input :name %>
-  <span class="btn btn-success fileinput-button">
-    <i class="glyphicon glyphicon-plus"></i>
-    <span>Select files...</span>
-    <!-- The file input field used as target for the file upload widget -->
-    <input id="fileupload" type="file" name="file">
-  </span>
-  <div id="progress">
-    <div class="bar" style="width: 0%;"></div>
-  </div>
-  <%= hidden_field_tag :upyun_policy, @policy %>
-  <%= hidden_field_tag :upyun_signature, @signature %>
-  <%= f.input :url %>
-  <%= f.input :description, :as => :text, :input_html => { :rows => "6" }, :placeholder => "讲一讲歌曲的故事"%>
-  <%= f.input :lyrics, :as => :text, :input_html => { :rows => "6" } %>
-  <div class="actions">
-    <%= f.submit '保存', :class => "btn btn-primary btn-lg btn-block", :disable_with => '保存中' %>
-  </div>
-</fieldset>
-<% end %>
+	<%= simple_form_for([@song]) do |f| %>
+	<fieldset class="col-md-6 col-md-offset-3">
+		<%= f.error_notification %>
+		<%= f.input :name %>
+		<div class="row">
+			<div class="col-md-3">
+				<button id="upload_button" class="btn btn-success fileinput-button" style="width:130px"> <i class="glyphicon glyphicon-plus"></i> <span id="upload_label">点击上传歌曲</span> <!-- The file input field used as target for the file upload widget -->
+					<input id="fileupload" type="file" name="file">
+				</button>
+			</div>
+			<div class="col-md-9">
+				<div class="progress progress-striped active" style="height:34px">
+					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+				</div>
+			</div>
+		</div>
+
+		<%= hidden_field_tag :upyun_policy, @policy %>
+		<%= hidden_field_tag :upyun_signature, @signature %>
+		<%= f.input :url ,:readonly => true%>
+		<%= f.input :description, :as => :text, :input_html => { :rows => "6" }, :placeholder => "讲一讲歌曲的故事"%>
+		<%= f.input :lyrics, :as => :text, :input_html => { :rows => "6" } %>
+		<div class="actions">
+			<%= f.submit '保存', :class => "btn btn-primary btn-lg btn-block", :disable_with => '保存中' %>
+		</div>
+	</fieldset>
+	<% end %>
 </div>
 
 <script>
-/*jslint unparam: true */
-/*global window, $ */
-$(function () {
-    'use strict';
-    // Change this to the location of your server-side upload handler:
-    var url = "http://v0.api.upyun.com/guanghe-file/";
-    var policy = $("#upyun_policy").val();
-    var signature = $("#upyun_signature").val();
-    $('#fileupload').fileupload({
-        url: url,
-        dataType: 'json',
-  		formData : {
-		'policy' : policy,
-		'signature' : signature
-		},
-		method : 'post',
-        success: function (data) {
-            $("#song_url").val(data.url);
-        },
-	    progressall: function (e, data) {
-	        var progress = parseInt(data.loaded / data.total * 100, 10);
-	        $('#progress .bar').css(
-	            'width',
-	            progress + '%'
-	        );
-	    }
-    });
-});
+	/*jslint unparam: true */
+	/*global window, $ */
+	$(function() {'use strict';
+		// Change this to the location of your server-side upload handler:
+		var url = "http://v0.api.upyun.com/guanghe-file/";
+		var policy = $("#upyun_policy").val();
+		var signature = $("#upyun_signature").val();
+		$('#fileupload').fileupload({
+			url : url,
+			dataType : 'json',
+			formData : {
+				'policy' : policy,
+				'signature' : signature
+			},
+			method : 'post',
+			success : function(data) {
+				$("#song_url").val(data.url);
+				$("#upload_label").text("上传完成");
+				$('[name="commit"]').removeAttr('disabled');
+				$('[name="commit"]').val('保存');
+			},
+			progressall : function(e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('.progress .progress-bar').css('width', progress + '%');
+				$("#upload_label").text("上传中..");
+				$('#fileupload').attr('disabled', 'true');
+				$('#upload_button').attr('disabled', 'disabled');
+				$('[name="commit"]').attr('disabled', 'disabled');
+				$('[name="commit"]').val('上传文件中...');
+			}
+		});
+	}); 
 </script>

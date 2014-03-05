@@ -14,10 +14,15 @@ class SongsController < ApplicationController
   
   def create
     @song = Song.new(params[:song].permit!)
-    if @song.save
-      redirect_to root_path, :notice => "保存成功"
-    else
+    if @song.url == ""
+      flash[:alert] = "您未上传歌曲或歌曲没有上传完毕"
       render :new
+    else
+      if @song.save
+        redirect_to root_path, :notice => "保存成功"
+      else
+        render :new
+      end      
     end
   end
   
