@@ -1,0 +1,24 @@
+<div class="container">
+	<%= simple_form_for(@resource, :url => idols_profile_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
+	<fieldset class="col-md-6 col-md-offset-3">
+		<%= f.error_notification %>
+		<%= f.input :name %>
+		<%= f.input :gender, collection: ["男", "女"], include_blank: false%>
+		<%= f.input :email, :placeholder => "该邮箱将作为注册时的制定邮箱" %>
+		<%= f.input :wechat, :placeholder => "以便我们使用微信与您联系（必填）" %>
+		<%= f.input :weibo_url, :placeholder => "通过微博可以让我们更多的了解您" %>
+		<%= f.input :douban_url, :placeholder => "如果可以在豆瓣上听到您的作品，请告诉我们小站的地址"  %>
+		<%= f.input :wusing_url, :placeholder => "如果可以在5Sing上听到您的作品，请告诉我们主页的地址" %>
+		<%= f.input :similar_artist, :placeholder => "您认为风格和您相近的音乐人/歌手"%>
+		<%= f.input :description, :as => :text, :input_html => { :rows => "6" } %>
+		<div class="actions">
+			<%= f.submit '保存修改', :class => "btn btn-primary btn-lg btn-block", :disable_with => '保存中' %>
+		</div>
+		<div class="center-block">
+			<p class="sign-up-info text-muted">
+			</p>
+		</div>
+	</fieldset>
+	<% end %>
+</div>
+

@@ -47,3 +47,4 @@ zh-CN:
         subject: '解锁信息'
     account:
       updated: '密码修改成功'
+      signed_up: '用户注册成功'
