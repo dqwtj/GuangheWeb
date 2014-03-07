@@ -5,9 +5,9 @@
 		<%= f.input :name %>
 		<div class="row">
 			<div class="col-md-3">
-				<button id="upload_button" class="btn btn-success fileinput-button" style="width:130px"> <i class="glyphicon glyphicon-plus"></i> <span id="upload_label">点击上传歌曲</span> <!-- The file input field used as target for the file upload widget -->
+				<span id="upload_button" class="btn btn-success fileinput-button" style="width:130px"> <i class="glyphicon glyphicon-plus"></i> <span id="upload_label">点击上传歌曲</span> <!-- The file input field used as target for the file upload widget -->
 					<input id="fileupload" type="file" name="file">
-				</button>
+				</span>
 			</div>
 			<div class="col-md-9">
 				<div class="progress progress-striped active" style="height:34px">
@@ -44,11 +44,13 @@
 				'signature' : signature
 			},
 			method : 'post',
-			success : function(data) {
-				$("#song_url").val(data.url);
+			done : function(data) {
 				$("#upload_label").text("上传完成");
 				$('[name="commit"]').removeAttr('disabled');
 				$('[name="commit"]').val('保存');
+			},
+			success : function(data) {
+				$("#song_url").val(data.url);
 			},
 			progressall : function(e, data) {
 				var progress = parseInt(data.loaded / data.total * 100, 10);
