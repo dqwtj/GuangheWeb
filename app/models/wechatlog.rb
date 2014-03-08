@@ -8,4 +8,5 @@ class Wechatlog
   field :mediaId
   field :createTime
   field :event
+  field :params
 end
