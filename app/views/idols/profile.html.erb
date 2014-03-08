@@ -28,7 +28,7 @@
 		<%= f.input :description, :as => :text, :input_html => { :rows => "6" } %>
 		<%= hidden_field_tag :upyun_policy, @policy %>
 		<%= hidden_field_tag :upyun_signature, @signature %>
-		<%= f.input :avatar_url, :visible => false%>
+		<%= f.input :avatar_url, :as => :hidden%>
 		<div class="actions">
 			<%= f.submit '保存修改', :class => "btn btn-primary btn-lg btn-block", :disable_with => '保存中' %>
 		</div>
