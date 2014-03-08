@@ -8,6 +8,25 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     render :text => params[:echostr]
   end
   
+  def create
+    recordlog
+  end
+  
+  private
+  # log
+  def recordlog
+    @log = Log.new(:content=> params[:xml][:Content],
+    :type => params[:xml][:MsgType],
+    :time => Time.at(params[:xml][:CreateTime].to_i),
+    :fromUser => params[:xml][:FromUserName],
+    :MediaId => params[:xml][:MediaId],
+    :CreateTime => params[:xml][:CreateTime],
+    :event => params[:xml][:Event],
+    :eventKey => params[:xml][:EventKey]
+    )
+    @log.save
+  end
+  
   private
   # 根据参数校验请求是否合法，如果非法返回错误页面
   def check_weixin_legality
