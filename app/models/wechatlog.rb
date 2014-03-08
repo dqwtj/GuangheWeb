@@ -5,7 +5,7 @@ class Wechatlog
   field :content
   field :type
   field :time
-  field :MediaId
-  field :CreateTime
+  field :mediaId
+  field :createTime
   field :event
 end
