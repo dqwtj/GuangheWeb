@@ -9,6 +9,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   end
   
   def create
+    render "echo", :formats => :xml
     recordlog
   end
   
