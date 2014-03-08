@@ -1,4 +1,4 @@
-class Log
+class Wechatlog
   include Mongoid::Document
   include Mongoid::Timestamps
   field :fromUser
