@@ -1,10 +1,10 @@
 # coding: utf-8
 
 class Wechat::SongsController < Wechat::ApplicationController
-
-  def show
-    @song = Song.find params[:id]
-    @idol = @song.idol
-  end
+  skip_before_filter :verify_authenticity_token
+  before_filter :check_weixin_legality
   
+  def show
+    render :text => params[:echostr]
+  end
 end
