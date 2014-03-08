@@ -1,7 +1,7 @@
 class Idol
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -47,34 +47,45 @@ class Idol
   field :name
   field :gender, :type=> String, :default => "男"
   field :wechat
+  field :avatar_url
   field :douban_url
   field :weibo_url
   field :wusing_url
   field :other_url
   field :description
   field :similar_artist
-  
+
   field :songs_count, :type => Integer, :default => 0
-  
+
   has_many :contributions
   has_many :songs
   has_many :albums
   has_and_belongs_to_many :fans, :class_name => 'User', :inverse_of => :idols
-  
+
   validates_each :email do |record, attr, value|
     @apply = Apply.where(:email => value).first
     if @apply == nil
-      record.errors.add(attr, '您输入的Email不存在，请先申请内测，等我们工作人员联系您后再来注册') 
+      record.errors.add(attr, '您输入的Email不存在，请先申请内测，等我们工作人员联系您后再来注册')
     end
   end
-  
+
   validate :valid_invite_token
-  
+
   def valid_invite_token
     @apply = Apply.where(invite_token: invite_token).first
     if @apply == nil
-      errors.add(:invite_token, '您输入的邀请码和Email不匹配，请重新输入') 
+      errors.add(:invite_token, '您输入的邀请码和Email不匹配，请重新输入')
     end
   end
-  
+
+  def avatar_small
+    self.avatar_url.blank? ? "#" : self.upyun_url+self.avatar_url+"!avatarsmall"
+  end
+
+  protected
+
+  def upyun_url
+    "http://guanghe-photo.b0.upaiyun.com"
+  end
+
 end
