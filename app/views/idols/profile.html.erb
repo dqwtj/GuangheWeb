@@ -1,0 +1,78 @@
+<div class="container">
+	<%= simple_form_for(@resource, :url => idols_profile_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
+	<fieldset class="col-md-6 col-md-offset-3">
+		<%= f.error_notification %>
+		<%= f.input :name %>
+
+		<div class="row">
+			<div class="col-md-3">
+				<img id="avatar" src="<%= @resource.avatar_small == "#" ? 'http://guanghe-photo.b0.upaiyun.com/avatar/4b7dca79dd618be9ea5c93edd1ed71a6.png!avatarsmall' : @resource.avatar_small%>" alt="用户头像" class="img-thumbnail">
+			</div>
+			<div class="col-md-9">
+				<span id="upload_button" class="btn btn-success fileinput-button" style="width:130px"> <i class="glyphicon glyphicon-plus"></i> <span id="upload_label">上传头像</span> <!-- The file input field used as target for the file upload widget -->
+					<input id="fileupload" type="file" name="file">
+				</span>
+				<hr/>
+				<div class="progress progress-striped active" style="height:34px">
+					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+				</div>
+			</div>
+		</div>
+		<%= f.input :gender, collection: ["男", "女"], include_blank: false%>
+		<%= f.input :email, :placeholder => "该邮箱将作为注册时的制定邮箱" %>
+		<%= f.input :wechat, :placeholder => "以便我们使用微信与您联系（必填）" %>
+		<%= f.input :weibo_url, :placeholder => "通过微博可以让我们更多的了解您" %>
+		<%= f.input :douban_url, :placeholder => "如果可以在豆瓣上听到您的作品，请告诉我们小站的地址"  %>
+		<%= f.input :wusing_url, :placeholder => "如果可以在5Sing上听到您的作品，请告诉我们主页的地址" %>
+		<%= f.input :similar_artist, :placeholder => "您认为风格和您相近的音乐人/歌手"%>
+		<%= f.input :description, :as => :text, :input_html => { :rows => "6" } %>
+		<%= hidden_field_tag :upyun_policy, @policy %>
+		<%= hidden_field_tag :upyun_signature, @signature %>
+		<%= f.input :avatar_url, :as => :hidden%>
+		<div class="actions">
+			<%= f.submit '保存修改', :class => "btn btn-primary btn-lg btn-block", :disable_with => '保存中' %>
+		</div>
+		<div class="center-block">
+			<p class="sign-up-info text-muted"></p>
+		</div>
+	</fieldset>
+	<% end %>
+</div>
+
+<script>
+	/*jslint unparam: true */
+	/*global window, $ */
+	$(function() {'use strict';
+		// Change this to the location of your server-side upload handler:
+		var url = "http://v0.api.upyun.com/guanghe-photo/";
+		var policy = $("#upyun_policy").val();
+		var signature = $("#upyun_signature").val();
+		$('#fileupload').fileupload({
+			url : url,
+			dataType : 'json',
+			formData : {
+				'policy' : policy,
+				'signature' : signature
+			},
+			method : 'post',
+			done : function(data) {
+				$("#upload_label").text("上传完成");
+				$('[name="commit"]').removeAttr('disabled');
+				$('[name="commit"]').val('保存');
+			},
+			success : function(data) {
+				$("#idol_avatar_url").val(data.url);
+				$('#avatar').attr('src', 'http://guanghe-photo.b0.upaiyun.com' + data.url + '!avatarsmall');
+			},
+			progressall : function(e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('.progress .progress-bar').css('width', progress + '%');
+				$("#upload_label").text("上传中..");
+				$('#fileupload').attr('disabled', 'true');
+				$('#upload_button').attr('disabled', 'disabled');
+				$('[name="commit"]').attr('disabled', 'disabled');
+				$('[name="commit"]').val('上传头像中...');
+			}
+		});
+	}); 
+</script>
