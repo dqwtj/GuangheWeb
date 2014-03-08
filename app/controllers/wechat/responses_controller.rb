@@ -15,16 +15,16 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   private
   # log
   def recordlog
-    puts "1111"
-    @wechatlog = Wechatlog.new(:content=> params[:xml][:Content],
-    :type => params[:xml][:MsgType],
-    :time => Time.at(params[:xml][:CreateTime].to_i),
-    :fromUser => params[:xml][:FromUserName],
-    :MediaId => params[:xml][:MediaId],
-    :CreateTime => params[:xml][:CreateTime],
-    :event => params[:xml][:Event],
-    :eventKey => params[:xml][:EventKey]
-    )
+    @wechatlog = Wechatlog.new()
+    @wechatlog.content = params[:xml][:Content]
+    @wechatlog.type = params[:xml][:MsgType]
+    @wechatlog.time = Time.at(params[:xml][:CreateTime].to_i)
+    @wechatlog.fromUser = params[:xml][:FromUserName]
+    @wechatlog.mediaId = params[:xml][:MediaId]
+    @wechatlog.createTime = params[:xml][:CreateTime]
+    @wechatlog.event = params[:xml][:Event]
+    @wechatlog.eventKey = params[:xml][:EventKey]
+    
     @wechatlog.save
   end
   
