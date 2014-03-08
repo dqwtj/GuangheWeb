@@ -1,3 +1,11 @@
 <div class="container">
 	<%= link_to "上传歌曲", new_song_path, :class => "btn btn-primary"%>
+	<ul class="list-group">
+		<% @songs.each do |song|%>
+  		<li class="list-group-item">
+  			<%= song.name %>
+  			<%= link_to "查看歌曲页面", wechat_song_path(song) %>
+  		</li>
+  		<% end %>
+	</ul>
 </div>

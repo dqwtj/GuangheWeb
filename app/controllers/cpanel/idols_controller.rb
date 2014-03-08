@@ -2,7 +2,7 @@
 class Cpanel::IdolsController < Cpanel::ApplicationController
   
   def index
-    @idols = Idol.paginate :page => params[:page], :per_page => 30
+    @idols = Idol.all
   end
   
   def edit
