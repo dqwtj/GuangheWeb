@@ -47,9 +47,9 @@ end
 # Use unicorn as the app server
 # Use thin as the app server in windows environment for alternative
 if RUBY_PLATFORM=~ /win32/
-  gem 'unicorn'
-else
   gem 'thin'
+else
+  gem 'unicorn'
 end 
 
 
