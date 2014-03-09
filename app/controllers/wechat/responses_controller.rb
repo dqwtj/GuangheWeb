@@ -10,7 +10,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   
   def create
     render "echo", :formats => :xml
-    recordlog
+    #recordlog
   end
   
   private
