@@ -9,16 +9,21 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   end
   
   def create
+    recordlog
     if params[:xml][:MsgType] == "event"
       if params[:xml][:Event] == "SCAN"
         @ticket = params[:xml][:Ticket]
-        @song_name = Song.where(:ticket => @ticket).last.name
+        @song = Song.where(:ticket => @ticket).first
+        if @song == nil
+          @name = @ticket
+        else
+          @name = @song.name
+        end
         render "qrcode", :formats => :xml
       end
     else
       render "echo", :formats => :xml
     end
-    recordlog
   end
   
   private
