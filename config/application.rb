@@ -25,6 +25,7 @@ module WechatFans
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = "zh-CN"
     # 微信 API token
-    config.wechat_token = "guanghe_music_secrect_789432"    
+    config.wechat_token = "guanghe_music_secrect_789432"
+    config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
   end
 end
