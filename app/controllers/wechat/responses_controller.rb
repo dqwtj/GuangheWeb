@@ -9,7 +9,15 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   end
   
   def create
-    render "echo", :formats => :xml
+    if params[:xml][:MsgType] == "event"
+      if params[:xml][:Event] == "SCAN"
+        @ticket = params[:xml][:Ticket]
+        @song_name = Song.where(:ticket => @ticket).last.name
+        render "qrcode", :formats => :xml
+      end
+    else
+      render "echo", :formats => :xml
+    end
     recordlog
   end
   
@@ -25,7 +33,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     @wechatlog.createTime = params[:xml][:CreateTime]
     @wechatlog.event = params[:xml][:Event]
     @wechatlog.eventKey = params[:xml][:EventKey]
-    
+    @wechatlog.ticket = params[:xml][:Ticket]
     @wechatlog.save
   end
   

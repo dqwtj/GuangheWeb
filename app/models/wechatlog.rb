@@ -10,4 +10,5 @@ class Wechatlog
   field :event
   field :eventKey
   field :params
+  field :ticket
 end
