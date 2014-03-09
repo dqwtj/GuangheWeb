@@ -10,22 +10,21 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   
   def create
     render "echo", :formats => :xml
-    #recordlog
+    recordlog
   end
   
   private
   # log
   def recordlog
     @wechatlog = Wechatlog.new()
-    @wechatlog.params = params
-    # @wechatlog.content = params[:xml][:Content]
-    # @wechatlog.type = params[:xml][:MsgType]
-    # @wechatlog.time = Time.at(params[:xml][:CreateTime].to_i)
-    # @wechatlog.fromUser = params[:xml][:FromUserName]
-    # @wechatlog.mediaId = params[:xml][:MediaId]
-    # @wechatlog.createTime = params[:xml][:CreateTime]
-    # @wechatlog.event = params[:xml][:Event]
-    # @wechatlog.eventKey = params[:xml][:EventKey]
+    @wechatlog.content = params[:xml][:Content]
+    @wechatlog.type = params[:xml][:MsgType]
+    @wechatlog.time = Time.at(params[:xml][:CreateTime].to_i)
+    @wechatlog.fromUser = params[:xml][:FromUserName]
+    @wechatlog.mediaId = params[:xml][:MediaId]
+    @wechatlog.createTime = params[:xml][:CreateTime]
+    @wechatlog.event = params[:xml][:Event]
+    @wechatlog.eventKey = params[:xml][:EventKey]
     
     @wechatlog.save
   end
