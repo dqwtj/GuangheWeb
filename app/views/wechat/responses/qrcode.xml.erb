@@ -6,21 +6,21 @@
 		<![CDATA[<%= params[:xml][:ToUserName] %>]]>
 	</FromUserName>
 	<CreateTime>
-		12345678
+		<%= Time.now.to_i %>
 	</CreateTime>
 	<MsgType>
 		<![CDATA[music]]>
 	</MsgType>
 	<Music>
-		<Title><![CDATA[@song.name]]></Title>
+		<Title><![CDATA[<%= @song.name%>]]></Title>
 		<Description>
-			<![CDATA[@song.description]]>
+			<![CDATA[<%= @song.description %>]]>
 		</Description>
 		<MusicUrl>
-			<![CDATA[@song.mp3_url]]>
+			<![CDATA[<%= @song.mp3_url%>]]>
 		</MusicUrl>
 		<HQMusicUrl>
-			<![CDATA[@song.mp3_url]]]>
+			<![CDATA[<%= @song.mp3_url%>]]]>
 		</HQMusicUrl>
 		<ThumbMediaId>
 			<![CDATA[media_id]]>
