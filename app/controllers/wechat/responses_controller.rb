@@ -9,11 +9,10 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   end
   
   def create
-    recordlog
-    if params[:xml][:MsgType] == "event"
-      if params[:xml][:Event] == "SCAN"
-        @ticket = params[:xml][:Ticket]
-        @song = Song.where(:ticket => @ticket).first
+    @action = recordlog
+    if @action.type == "event"
+      if @action.event == "SCAN"
+        @song = Song.where(:ticket => @action.ticket).last
         if @song == nil
           @name = @ticket
         else
@@ -39,7 +38,9 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     @wechatlog.event = params[:xml][:Event]
     @wechatlog.eventKey = params[:xml][:EventKey]
     @wechatlog.ticket = params[:xml][:Ticket]
+    @wechatlog.body = params[:xml]
     @wechatlog.save
+    return @wechatlog
   end
   
   private

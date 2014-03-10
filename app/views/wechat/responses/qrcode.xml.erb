@@ -1,8 +1,44 @@
 <xml>
-    <ToUserName><![CDATA[<%= params[:xml][:FromUserName] %>]]></ToUserName>
-    <FromUserName><![CDATA[<%= params[:xml][:ToUserName] %>]]></FromUserName>
-    <CreateTime><%= Time.now.to_i %></CreateTime>
-    <MsgType><![CDATA[text]]></MsgType>
-    <Content><![CDATA[您正在收听歌曲：<%= @song_name %>]]></Content>
-    <FuncFlag>0</FuncFlag>
+
+	<CreateTime>
+		<%= Time.now.to_i %>
+	</CreateTime>
+	<MsgType>
+		<![CDATA[text]]>
+	</MsgType>
+	<Content>
+		<![CDATA[您正在收听歌曲：<%= @song_name %>]]>
+	</Content>
+	<FuncFlag>
+		0
+	</FuncFlag>
+</xml>
+<xml>
+	<ToUserName>
+		<![CDATA[<%= params[:xml][:FromUserName] %>]]>
+	</ToUserName>
+	<FromUserName>
+		<![CDATA[<%= params[:xml][:ToUserName] %>]]>
+	</FromUserName>
+	<CreateTime>
+		12345678
+	</CreateTime>
+	<MsgType>
+		<![CDATA[music]]>
+	</MsgType>
+	<Music>
+		<Title><![CDATA[@song.name]]></Title>
+		<Description>
+			<![CDATA[@song.description]]>
+		</Description>
+		<MusicUrl>
+			<![CDATA[@song.mp3_url]]>
+		</MusicUrl>
+		<HQMusicUrl>
+			<![CDATA[@song.mp3_url]]]>
+		</HQMusicUrl>
+		<ThumbMediaId>
+			<![CDATA[media_id]]>
+		</ThumbMediaId>
+	</Music>
 </xml>
