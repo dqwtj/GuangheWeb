@@ -12,6 +12,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     @action = recordlog
     if @action.type == "event"
       if @action.event == "SCAN"
+        puts @action
         @song = Song.where(:ticket => @action.ticket).last
         render "qrcode", :formats => :xml
       end
