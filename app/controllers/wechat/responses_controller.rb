@@ -12,7 +12,8 @@ class Wechat::ResponsesController < Wechat::ApplicationController
       if @action.event == "SCAN"
         @song = Song.where(:ticket => @action.ticket).last
         @song = Song.last if @song == nil
-        render "qrcode", :formats => :xml
+	puts @song.mp3_url
+        render "qrcodemp3", :formats => :xml
       end
     else
       render "echo", :formats => :xml
