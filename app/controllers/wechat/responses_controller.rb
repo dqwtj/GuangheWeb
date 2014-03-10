@@ -13,9 +13,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     if @action.type == "event"
       if @action.event == "SCAN"
         @song = Song.where(:ticket => @action.ticket).last
-        if @song == nil
-          @song = Song.last
-        end
+	@song = Song.last if @song == nil
         render "qrcode", :formats => :xml
       end
     else
@@ -42,7 +40,6 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   end
   
   private
-  # 根据参数校验请求是否合法，如果非法返回错误页面
   def check_weixin_legality
     array = [Rails.configuration.wechat_token, params[:timestamp], params[:nonce]].sort
     render :text => "Forbidden", :status => 403 if params[:signature] != Digest::SHA1.hexdigest(array.join)
