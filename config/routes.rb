@@ -16,6 +16,7 @@ WechatFans::Application.routes.draw do
   namespace :wechat do
     resources :songs
     resource :response
+    resource :activity
   end
   
   devise_for :idols, :path => "account", :controllers => {

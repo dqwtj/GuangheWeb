@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+html,body {
+	width: 100%;
+	margin: 0;
+	padding: 0; //
+	overflow: hidden;
+	background: #E7E7E7;
+	font-family: '宋体', Helvetica, Calibri, Arial, sans-serif;
+}
+
+div,a {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	margin: 0px;
+	padding: 0px;
+}
+
+span {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.wrapper {
+	width: 100%;
+	height: 14px;
+}
+
+div.content {
+	text-align: center;
+	width: 100%;
+}
+
+div.inner {
+	margin-top: 10px;
+	width: 640px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+div.topbar {
+	height: 118px;
+	width: 582px;
+	background: image-url('screen.png') 0px 0px no-repeat;
+	display: block;
+}
+
+div.panel {
+	height: 587px;
+	width: 582px;
+	background: image-url('display_05.png') 0px 0px no-repeat;
+}
+
+div.play_button {
+	float:left;
+	position: relative;
+	top: 16px;
+	left: 41px;
+	height: 64px;
+	width: 56px;
+	background: image-url('play.png') 0px 0px no-repeat;
+	z-index: 10;
+}
+
+div.play_button:hover{
+	background: image-url('play_press.png') 0px 0px no-repeat;
+}
+
+div.pause_button {
+	float:left;
+	position: relative;
+	top: 16px;
+	left: 39px;
+	height: 64px;
+	width: 56px;
+	background: image-url('pause.png') 0px 0px no-repeat;
+	z-index: 10;
+}
+
+div.pause_button:hover{
+	background: image-url('pause_press.png') 0px 0px no-repeat;
+}
+
+div.like_button {
+	position:relative;
+	left:50%;
+	top: 470px;
+	margin-left:-124px;
+	height: 74px;
+	width: 248px;
+	background: image-url('like.png') 0px 0px no-repeat;
+	z-index: 10;
+}
+
+div.like_button:hover{
+	background: image-url('like_press.png') 0px 0px no-repeat;
+}	
