@@ -1,0 +1,31 @@
+<xml>
+	<ToUserName>
+		<![CDATA[<%= params[:xml][:FromUserName] %>]]>
+	</ToUserName>
+	<FromUserName>
+		<![CDATA[<%= params[:xml][:ToUserName] %>]]>
+	</FromUserName>
+	<CreateTime>
+		<%= Time.now.to_i %>
+	</CreateTime>
+	<MsgType>
+		<![CDATA[news]]>
+	</MsgType>
+	<ArticleCount>
+		1
+	</ArticleCount>
+	<Articles>
+		<item>
+			<Title><![CDATA[点击收听<%= @song.name%>]]></Title>
+			<Description>
+				<![CDATA[<%= @song.description %>]]>
+			</Description>
+			<PicUrl>
+				<![CDATA[http://www.ezit.com.cn/desk/UploadPic/2013-1/20131804215565.jpg]]>
+			</PicUrl>
+			<Url>
+				<![CDATA[http://guanghe.chuanchang.cc/wechat/activity]]>
+			</Url>
+		</item>
+	</Articles>
+</xml>
