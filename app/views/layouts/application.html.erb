@@ -20,18 +20,35 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>
       		</button>
-      		<a class="navbar-brand" href="#">光合音乐</a>
     	</div>
-    	
+    	<ul class="nav navbar-nav">
+    		<li><a href="#">首页</a></li>
+    		<li><a href="#">光合成长计划</a></li>
+    		<li><a href="#">关于我们</a></li>
+    	</ul>
+    	<h3 style="text-align: center; margin: 0px auto; width: 108px;">
+      		<a class="navbar-brand guanghe-logo text-hide" href="#">光合音乐</a>
+      	</h3>
     	<div class="collapse navbar-collapse">
     		<ul class="nav navbar-nav navbar-right">
-    			<li><a href="#">介绍</a></li>
-    			<li><a href="#">服务</a></li>
-    			<li><a href="#">关于我们</a></li>
     			<% if current_idol %>
+    			<li>
+    				<div class="dropdown navbar-add-btn">
+  						<button class="btn btn-outline-inverse navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    						<span class="glyphicon glyphicon-plus"></span>
+  						</button>
+  						<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+    						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">上传新作品</a></li>
+    						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">创建新活动</a></li>
+    						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+    						<li role="presentation" class="divider"></li>
+    						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  						</ul>
+					</div>
+    			</li>
     			<li><div class="btn-group">
-    				<%= link_to "我的后台", myself_path, :class => "btn btn-primary navbar-btn"%>
-  					<button type="button" class="btn btn-primary navbar-btn dropdown-toggle" data-toggle="dropdown">
+    				<%= link_to current_idol.name, myself_path, :class => "btn btn-outline-inverse navbar-btn navbar-name-btn"%>
+  					<button type="button" class="btn btn-outline-inverse btn-link navbar-btn dropdown-toggle" data-toggle="dropdown">
     					<span class="caret"></span>
     				<span class="sr-only">Toggle Dropdown</span>
   					</button>
@@ -45,8 +62,12 @@
   					</ul>
 				</div></li>
     			<% else %>
-    			<li><%= link_to "登录", new_idol_session_path%></li>
-    			<li><%= link_to "申请内测", new_apply_path, :class => "btn btn-info navbar-btn"%></li>
+    			<li>
+    				<div class="btn-group">
+    				<%= link_to "点击申请内测音乐人", new_apply_path, :class => "btn btn-outline-inverse navbar-btn"%>
+    				<%= link_to "登录", new_idol_session_path, :class => "btn btn-outline-inverse navbar-btn"%>
+    				</div>
+    			</li>
     			<% end %>
     		</ul>
     	</div>
@@ -55,12 +76,12 @@
 	
 	<div class="container">
 	<% if notice%>
-	<div data-alert class="alert alert-info col-md-6 col-md-offset-3" id="notice-panel">
+	<div data-alert class="alert alert-info col-md-8 col-md-offset-2" id="notice-panel">
 		<%= notice %>
 	</div>
 	<% end %>
 	<% if alert %>
-	<div data-alert class="alert alert-danger col-md-6 col-md-offset-3" id="alert-panel">
+	<div data-alert class="alert alert-danger col-md-8 col-md-offset-2" id="alert-panel">
 		<%= alert %>
 	</div>
 	<% end %>

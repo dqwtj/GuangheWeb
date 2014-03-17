@@ -12,6 +12,14 @@
  *= require_tree .
  */
 
+$navbar-default-color: #FFF;
+$navbar-default-bg: #554c63;
+$navbar-default-link-color: #FFF;
+$navbar-default-link-hover-color: #FFF;
+$navbar-default-link-hover-bg: darken($navbar-default-bg, 10%);
+$input-border-focus: #a899e9;
+
+
 @import "bootstrap";
 
 .navbar .nav > li > a.btn.btn-info {
@@ -19,14 +27,21 @@
   @extend .btn-info;
 }
 
+.navbar .nav > li > button.btn.btn-info {
+  @extend .btn;
+  @extend .btn-info;
+}
+
 #notice-panel {
   text-align: center;
+  margin-top: -20px;
 }
 
 #alert-panel {
   text-align: center;
+  margin-top: -20px;
 }
 
 fieldset.login-field {
-  margin-top: 50px;
+  margin-top: 100px;
 }

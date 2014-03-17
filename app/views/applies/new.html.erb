@@ -12,7 +12,7 @@
   <%= f.input :similar_artist, :placeholder => "您认为风格和您相近的音乐人/歌手"%>
   <%= f.input :description, :as => :text, :input_html => { :rows => "6" } %>
   <div class="actions">
-    <%= f.submit '提交申请', :class => "btn btn-primary btn-lg btn-block", :disable_with => '保存中' %>
+    <%= f.submit '提交申请', :class => "btn btn-outline btn-lg btn-block", :disable_with => '保存中' %>
   </div>
   <div class="center-block">
   	<p class="sign-up-info text-muted">我已经获得邀请码，<%= link_to "点击这里注册", new_idol_registration_path %></p>

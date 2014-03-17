@@ -1,6 +1,53 @@
+/* btn-outline style */
+.btn-outline {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #554c63;
+  color: #554c63;
+}
+
+.btn-outline:hover, .btn-outline:focus, .btn-outline:active {
+  background-color: #554c63;
+  border-color: #554c63;
+  color: #FFFFFF;
+}
+
+.btn-outline-inverse {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #9c88bc;
+  color: #FFFFFF;
+}
+
+.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #554c63;
+  text-shadow: none;
+}
+
+
+
+a.navbar-name-btn {
+  min-width: 134px;
+  text-align: left;
+}
+
+div.navbar-add-btn {
+  margin-right: 10px;
+}
+
 p.sign-up-info {
   margin: 5px auto;
   text-align: center;
+}
+
+a.guanghe-logo {
+  background-image: image-url('gc-logo.png');
+  background-size: cover;
+  height: 50px;
+  width: 109px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: block;
 }
 
 a.myself-header-panel {
@@ -26,8 +73,11 @@ p.myself-header-info {
 
 
 /* Hack Bootstrap nav btn */
-.nav .open > a.btn-primary {
-  background-color: #428BCA;
+.nav .open > a.btn-outline-inverse {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #554c63;
+  text-shadow: none;
 }
 
 
