@@ -50,6 +50,7 @@ div.panel {
   width: 291px;
   background: image-url('display_05.png') 0px 0px no-repeat;
   background-size:100% 100%;
+  overflow:hidden;
 }
 
 div.play_button {
@@ -88,16 +89,52 @@ div.pause_button:active{
 
 div.like_button {
   position:relative;
-  left:30%;
-  top: 80%;
-  height: 37px;
-  width: 124px;
-  background: image-url('like.png') 0px 0px no-repeat;
+  left:7%;
+  top:-190px;
+  height: 40px;
+  width: 252px;
+  background: image-url('love.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+  z-index: 11;
+}
+
+div.like_button:active{
+  background: image-url('love_press.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+}
+
+div.cd {
+  position:relative;
+  height: 204px;
+  width: 204px;
+  top:-60px;
+  left:40px;
+  background: image-url('CD.png') 0px 0px no-repeat;
   background-size:100% 100%;
   z-index: 10;
 }
 
-div.like_button:active{
-  background: image-url('like_press.png') 0px 0px no-repeat;
+div.paper {
+  position: relative;
+  height: 426px;
+  width: 234px;
+  left:28px;
+  top: -200px;
+  z-index: 10;
+}
+
+div.papertop {
+  height: 213px;
+  width: 234px;
+  background: image-url('papertop.png') 0px 0px no-repeat;
   background-size:100% 100%;
+  z-index: 10;  
+}
+
+div.paperbottom {
+  height: 213px;
+  width: 234px;
+  background: image-url('paperbottom.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+  z-index: 10;
 }
