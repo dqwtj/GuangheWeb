@@ -64,7 +64,7 @@ div.play_button {
   z-index: 10;
 }
 
-div.play_button:hover{
+div.play_button:active{
   background: image-url('play_press.png') 0px 0px no-repeat;
   background-size:100% 100%;
 }
@@ -81,7 +81,7 @@ div.pause_button {
   z-index: 10;
 }
 
-div.pause_button:hover{
+div.pause_button:active{
   background: image-url('pause_press.png') 0px 0px no-repeat;
   background-size:100% 100%;
 }
@@ -97,7 +97,7 @@ div.like_button {
   z-index: 10;
 }
 
-div.like_button:hover{
+div.like_button:active{
   background: image-url('like_press.png') 0px 0px no-repeat;
   background-size:100% 100%;
 }
