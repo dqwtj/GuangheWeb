@@ -114,6 +114,12 @@ div.cd {
   z-index: 10;
 }
 
+@-webkit-keyframes slidedown{
+      0% {-webkit-transform: translate(0, -300px); }
+      50% {-webkit-transform: translate(0, -300px); }
+      100% {-webkit-transform: translate(0, 0); }
+}
+
 div.paper {
   position: relative;
   height: 426px;
@@ -121,6 +127,7 @@ div.paper {
   left:28px;
   top: -200px;
   z-index: 10;
+  -webkit-animation: slidedown 2s ease-out;
 }
 
 div.papertop {
@@ -128,7 +135,7 @@ div.papertop {
   width: 234px;
   background: image-url('papertop.png') 0px 0px no-repeat;
   background-size:100% 100%;
-  z-index: 10;  
+  z-index: 10;
 }
 
 div.paperbottom {
