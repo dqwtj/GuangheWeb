@@ -1,95 +1,103 @@
 @charset "utf-8";
 
 html,body {
-	width: 100%;
-	margin: 0;
-	padding: 0; //
-	overflow: hidden;
-	background: #E7E7E7;
-	font-family: '宋体', Helvetica, Calibri, Arial, sans-serif;
+  width: 100%;
+  margin: 0;
+  padding: 0; //
+  overflow: hidden;
+  background: #E7E7E7;
+  font-family: '黑体', Helvetica, Calibri, Arial, sans-serif;
 }
 
 div,a {
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	margin: 0px;
-	padding: 0px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  margin: 0px;
+  padding: 0px;
 }
 
 span {
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .wrapper {
-	width: 100%;
-	height: 14px;
+  width: 100%;
+  height: 14px;
 }
 
 div.content {
-	text-align: center;
-	width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 div.inner {
-	margin-top: 10px;
-	width: 640px;
-	display: inline-block;
-	overflow: hidden;
+  margin-top: 10px;
+  width: 320px;
+  display: inline-block;
+  overflow: hidden;
+  margin-left:15px;
 }
 
 div.topbar {
-	height: 118px;
-	width: 582px;
-	background: image-url('screen.png') 0px 0px no-repeat;
-	display: block;
+  height: 59px;
+  width: 291px;
+  background: image-url('screen.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+  display: block;
 }
 
-div.panel {
-	height: 587px;
-	width: 582px;
-	background: image-url('display_05.png') 0px 0px no-repeat;
+div.vpanel {
+  height: 293px;
+  width: 291px;
+  background: image-url('display_05.png') 0px 0px no-repeat;
+  background-size:100% 100%;
 }
 
 div.play_button {
-	float:left;
-	position: relative;
-	top: 16px;
-	left: 41px;
-	height: 64px;
-	width: 56px;
-	background: image-url('play.png') 0px 0px no-repeat;
-	z-index: 10;
+  float:left;
+  position: relative;
+  top: 13%;
+  left: 7.2%;
+  height: 32px;
+  width: 28px;
+  background: image-url('play.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+  z-index: 10;
 }
 
 div.play_button:hover{
-	background: image-url('play_press.png') 0px 0px no-repeat;
+  background: image-url('play_press.png') 0px 0px no-repeat;
+  background-size:100% 100%;
 }
 
 div.pause_button {
-	float:left;
-	position: relative;
-	top: 16px;
-	left: 39px;
-	height: 64px;
-	width: 56px;
-	background: image-url('pause.png') 0px 0px no-repeat;
-	z-index: 10;
+  float:left;
+  position: relative;
+  top: 13%;
+  left: 6.74%;
+  height: 32px;
+  width: 28px;
+  background: image-url('pause.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+  z-index: 10;
 }
 
 div.pause_button:hover{
-	background: image-url('pause_press.png') 0px 0px no-repeat;
+  background: image-url('pause_press.png') 0px 0px no-repeat;
+  background-size:100% 100%;
 }
 
 div.like_button {
-	position:relative;
-	left:50%;
-	top: 470px;
-	margin-left:-124px;
-	height: 74px;
-	width: 248px;
-	background: image-url('like.png') 0px 0px no-repeat;
-	z-index: 10;
+  position:relative;
+  left:30%;
+  top: 80%;
+  height: 37px;
+  width: 124px;
+  background: image-url('like.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+  z-index: 10;
 }
 
 div.like_button:hover{
-	background: image-url('like_press.png') 0px 0px no-repeat;
-}	
+  background: image-url('like_press.png') 0px 0px no-repeat;
+  background-size:100% 100%;
+}
