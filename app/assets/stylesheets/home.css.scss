@@ -53,10 +53,19 @@
   text-align: center;
 }
 
+.gh-intro-feature img {
+  margin-bottom: 20px;
+}
+
 .gh-intro-feature .lead {
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.gh-intro-feature hr {
+  width: 100px;
+  margin: 40px auto;
 }
 
 .gh-intro-feature .feature-item:hover {
