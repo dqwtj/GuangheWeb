@@ -24,7 +24,78 @@
   text-shadow: none;
 }
 
+/* Main Intro Page Style*/
 
+.gh-intro-main {
+  margin-top: -20px;
+  background: image-url('gc-promo.jpg') no-repeat scroll center bottom / cover rgba(0, 0, 0, 0);
+  height: 450px;
+  overflow: hidden;
+  text-align: center;
+  color: #FFF;
+}
+
+.gh-intro-main h1 {
+  margin-top: 215px;
+  margin-bottom: 30px;
+}
+
+.gh-intro-main .lead {
+  line-height: 1.5;
+}
+
+.gh-intro-feature {
+  border-bottom: 1px solid #E5E5E5;
+  color: #555555;
+  line-height: 1.5;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.gh-intro-feature .lead {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gh-intro-feature .feature-item:hover {
+  color: #554c63;
+}
+
+/* Myself Home Page Style */
+.gh-artist-main .btn-outline {
+  margin: 10px auto;
+}
+
+.gh-fb-main .btn-outline {
+  margin: 10px auto;
+}
+
+.gh-fb-main .lead {
+  font-size: 14px;
+}
+
+/* Song Index Page Style */
+.gh-songs-main .btn-outline {
+  margin: 10px auto;
+}
+
+.gh-songs-main .gh-song-panel {
+  text-align: center;
+}
+
+.gh-songs-main .progress-bar {
+  background-color: #554c63;
+}
+
+.gh-producer-main .panel-outline {
+  margin: 10px auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #554c63;
+  color: #554c63;
+}
 
 a.navbar-name-btn {
   min-width: 134px;
@@ -48,6 +119,8 @@ a.guanghe-logo {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   display: block;
+  padding: 15px;
+  float: left;
 }
 
 a.myself-header-panel {

@@ -2,6 +2,8 @@ WechatFans::Application.routes.draw do
   root "home#intro"
   
   get 'myself' => "home#myself"
+  get 'admission' => "home#admission"
+  get 'producer' => 'home#producer' 
   get 'idols/profile' => 'idols#profile'
   put 'idols/profile' => 'idols#update'
   resources :applies

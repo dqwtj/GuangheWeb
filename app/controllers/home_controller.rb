@@ -12,4 +12,8 @@ class HomeController < ApplicationController
     
   end
   
+  def admission
+     
+  end
+  
 end

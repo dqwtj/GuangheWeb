@@ -1,11 +1,31 @@
-<div class="container">
-	<%= link_to "上传歌曲", new_song_path, :class => "btn btn-primary"%>
-	<ul class="list-group">
-		<% @songs.each do |song|%>
-  		<li class="list-group-item">
-  			<%= song.name %>
-  			<%= link_to "查看歌曲页面", wechat_song_path(song) %>
-  		</li>
-  		<% end %>
-	</ul>
+<div class="gh-songs-main">
+	<div class="container">
+		<a class="btn btn-outline btn-lg btn-block">
+			<h3>我的歌曲</h3>
+		</a>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="thumbnail gh-song-panel">
+					<img class="img-responsive"  alt="用户头像" src="http://guanghe-photo.b0.upaiyun.com/avatar/4b7dca79dd618be9ea5c93edd1ed71a6.png!avatarsmall">
+      				<div class="caption">
+        				<h3>我的歌声里</h3>
+        				<div class="progress">
+  							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    							600/1000人气
+  							</div>
+						</div>
+						<p>600/1000人气升级到绿色</p>
+        				<p>没有一点点防备，也没有一次顾虑，这就是我翻唱的第一首歌哦~</p>
+        				<p>
+        					<a href="#" class="btn btn-outline" role="button">编辑</a> 
+        					<a href="#" class="btn btn-outline" role="button">分享</a>
+        				</p>
+      				</div>
+    			</div>
+			</div>
+		</div>
+		<a class="btn btn-outline btn-lg btn-block">
+			<h3>上传歌曲</h3>
+		</a>
+	</div>
 </div>
