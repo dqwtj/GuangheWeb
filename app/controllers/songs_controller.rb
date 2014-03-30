@@ -25,9 +25,10 @@ class SongsController < ApplicationController
       end
       @sceneid += 1
       @song.sceneid = @sceneid
-      @song.ticket = get_ticket(@sceneid)  
+      @song.ticket = get_ticket(@sceneid)
+      @song.idol = current_idol
       if @song.save
-        redirect_to root_path, :notice => "保存成功"
+        redirect_to songs_path, :notice => "保存成功"
       else
         render :new
       end

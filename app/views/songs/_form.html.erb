@@ -1,3 +1,7 @@
+<% if @song.blank?
+	@song = Song.where(id: params[:id]).first
+  end
+%>
 <div class="container">
 	<%= simple_form_for([@song]) do |f| %>
 	<fieldset class="col-md-6 col-md-offset-3">
