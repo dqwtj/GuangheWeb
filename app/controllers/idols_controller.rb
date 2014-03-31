@@ -1,6 +1,11 @@
 # coding: utf-8
 class IdolsController < ApplicationController
-  before_filter :authenticate_idol!
+  before_filter :authenticate_idol!, except: [:index, :show]
+  
+  def index
+    @idols = Idol.all
+  end
+  
   def profile
     @resource = current_idol
     @policy = Base64.encode64({:bucket => 'guanghe-photo', :expiration => (Time.now().to_i + 3600), 'save-key' => "/avatar/{filemd5}{.suffix}","allow-file-type" =>"jpg,png,jpeg","content-length-range" => "0,20480000"}.to_json).gsub("\n","")

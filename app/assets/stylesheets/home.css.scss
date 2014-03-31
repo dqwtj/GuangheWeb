@@ -85,6 +85,30 @@
   font-size: 14px;
 }
 
+/* Admission Intro Page */
+
+.gh-admission-main {
+  text-align: center;
+}
+
+.gh-timeline-container {
+  border-left: 3px solid #554c63;
+  margin: 20px auto;
+}
+
+.gh-timeline-major {
+  padding-left: 20px;
+  background: image-url("gh-timeline-tick.png") no-repeat scroll left center rgba(0, 0, 0, 0);
+}
+
+.gh-timeline-major .btn-outline {
+  border-width: 2px;
+}
+
+.gh-timeline-minor {
+  padding-left: 20px;
+}
+
 /* Song Index Page Style */
 .gh-songs-main .btn-outline {
   margin: 10px auto;

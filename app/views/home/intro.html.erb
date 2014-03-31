@@ -28,7 +28,7 @@
 		</div>
 		<hr/>
 		<p class="lead">光合音乐面向全国的优秀音乐人开放第一批入场券，限量68张</p>
-		<a class="btn btn-outline btn-lg">详细了解光合入场券</a>
+		<a class="btn btn-outline btn-lg" href="<%= admission_path %>">详细了解光合入场券</a>
 	</div>
 </div>
 <div class="gh-intro-feature">
@@ -66,3 +66,11 @@
 		<a class="btn btn-outline btn-lg">看看光合上的音乐人</a>
 	</div>
 </div>
+
+<% content_for :scripts do %>
+<script>
+$(function(){
+	$('.alert').hide();
+});
+</script>
+<% end %>

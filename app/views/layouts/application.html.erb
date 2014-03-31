@@ -47,7 +47,7 @@
 					</div>
     			</li>
     			<li><div class="btn-group">
-    				<%= link_to current_idol.name, myself_path, :class => "btn btn-outline-inverse navbar-btn navbar-name-btn"%>
+    				<%= link_to current_idol.name, console_path, :class => "btn btn-outline-inverse navbar-btn navbar-name-btn"%>
   					<button type="button" class="btn btn-outline-inverse btn-link navbar-btn dropdown-toggle" data-toggle="dropdown">
     					<span class="caret"></span>
     				<span class="sr-only">Toggle Dropdown</span>
@@ -75,7 +75,7 @@
 	</nav>
 	
 	<div class="container">
-	<% if notice%>
+	<% if notice %>
 	<div data-alert class="alert alert-info col-md-8 col-md-offset-2" id="notice-panel">
 		<%= notice %>
 	</div>
@@ -88,6 +88,8 @@
 	</div>
 	
 	<%= yield %>
+	
+	<%= yield :scripts %>
 
 </body>
 </html>

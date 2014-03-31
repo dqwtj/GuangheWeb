@@ -8,10 +8,6 @@ class HomeController < ApplicationController
     
   end
   
-  def myself
-    
-  end
-  
   def admission
      
   end
