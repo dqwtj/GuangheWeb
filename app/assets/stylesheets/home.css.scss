@@ -116,6 +116,20 @@
 
 .gh-songs-main .gh-song-panel {
   text-align: center;
+  width: 270px;
+  height: 380px;
+  overflow: hidden; 
+}
+.masonry {
+  margin: 0 auto;
+}
+
+.item {
+  width:  280px;
+  float: left;
+  padding: 5px;
+  height: 400px;
+  overflow: hidden; 
 }
 
 .gh-songs-main .progress-bar {

@@ -16,5 +16,6 @@
 //= require bootstrap/dropdown
 //= require jquery.ui.widget
 //= require jquery.fileupload
+//= require masonry.pkgd.min
 
 
