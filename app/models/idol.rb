@@ -41,6 +41,8 @@ class Idol
   # field :authentication_token, :type => String
   field :name
   field :level
+  #入驻音乐人, etc
+  field :title
   field :exp
   field :balance
   field :invite_token,  :type => String, :default => ""
@@ -60,6 +62,7 @@ class Idol
   has_many :contributions
   has_many :songs
   has_many :albums
+  has_many :tasks
   has_and_belongs_to_many :fans, :class_name => 'User', :inverse_of => :idols
 
   validates_each :email do |record, attr, value|

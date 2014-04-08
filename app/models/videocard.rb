@@ -1,0 +1,3 @@
+class Videocard < Card
+  
+end

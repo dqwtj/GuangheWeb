@@ -1,0 +1,3 @@
+class Concertcard < Card
+  
+end
