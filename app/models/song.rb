@@ -8,6 +8,7 @@ class Song
   field :description
   field :url
   field :exp
+  field :level,      :type => Integer, :default => 0
   field :ticket
   field :sceneid
   

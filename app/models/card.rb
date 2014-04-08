@@ -3,11 +3,9 @@ class Card
   include Mongoid::Timestamps
   #white, green, blue, purple
   field :quality
-  field :is_updating
-  field :update_start_time
+  field :is_creating
   #人气值
   field :pop_number
-  embeds_one :chip
+  has_many :chip
   belongs_to :song
-  
 end

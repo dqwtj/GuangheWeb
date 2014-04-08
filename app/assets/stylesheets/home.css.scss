@@ -88,7 +88,50 @@
 /* Admission Intro Page */
 
 .gh-admission-main {
+  margin-top: -20px;
+  background: image-url('gh-ad-promo.jpg') no-repeat scroll center top / cover rgba(0, 0, 0, 0);
+  height: 450px;
+  overflow: hidden;
   text-align: center;
+  color: #171028;
+}
+
+.gh-admission-main h1 {
+  margin-top: 200px;
+  margin-bottom: 30px;
+}
+
+.gh-admission-main .lead {
+  line-height: 1.5;
+}
+
+.gh-admission-feature {
+  border-bottom: 1px solid #E5E5E5;
+  color: #555555;
+  line-height: 1.5;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.gh-admission-feature hr {
+  width: 300px;
+  margin: 40px auto;
+}
+
+.gh-admission-item {
+  text-align: left;
+}
+
+.gh-admission-item .gh-admission-title {
+  line-height: 1.75;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.gh-admission-item .gh-admission-subtitle {
+  text-align: center;
+  font-size: 18px;
 }
 
 .gh-timeline-container {
@@ -106,7 +149,9 @@
 }
 
 .gh-timeline-minor {
-  padding-left: 20px;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
 /* Song Index Page Style */
@@ -120,6 +165,43 @@
   height: 380px;
   overflow: hidden; 
 }
+
+.gh-songs-main .thumbnail {
+  border: 2px solid #DDDDDD;
+  border-radius: 9px;
+}
+
+.gh-songs-main .thumbnail:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px rgba(168, 153, 233, 0.6);
+}
+
+.gh-songs-main .thumbnail.green {
+  border: 2px solid #b5ec88;
+}
+
+.gh-songs-main .thumbnail.green:hover {
+  border: 2px solid #89e141;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px #d2f4b4;
+}
+
+.gh-songs-main .thumbnail.blue {
+  border: 2px solid #91dee0;
+}
+
+.gh-songs-main .thumbnail.blue:hover {
+  border: 2px solid #4fcbce;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #bdebed;
+}
+
+.gh-songs-main .thumbnail.purple {
+  border: 2px solid #aaa5b1;
+}
+
+.gh-songs-main .thumbnail.purple:hover {
+  border: 2px solid #777082;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #ccc9d0;
+}
+
 .masonry {
   margin: 0 auto;
 }
