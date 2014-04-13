@@ -5,10 +5,16 @@ WechatFans::Application.routes.draw do
   get 'admission' => "home#admission"
   get 'producer' => 'home#producer' 
   get 'billboard' => 'home#billboard'
+  get 'songs/zan' => 'songs#zan'
   get 'idols/profile' => 'idols#profile'
   put 'idols/profile' => 'idols#update'
   resources :applies
-  resources :songs
+  resources :songs do
+    member do
+      get 'zan'
+    end
+  end
+
   resources :idols, only: [:index]
 
   namespace :cpanel do

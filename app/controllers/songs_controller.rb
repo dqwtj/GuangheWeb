@@ -8,7 +8,7 @@ class SongsController < ApplicationController
   def new
     @song = current_idol.songs.new
     @policy = Base64.encode64({:bucket => 'guanghe-file', :expiration => (Time.now().to_i + 3600), 'save-key' => "/sounds/{filemd5}{.suffix}","allow-file-type" =>"mp3,wav","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
-    @signature = Digest::MD5.hexdigest(@policy+'&'+'kP34t27f602TN1hWsVomI0NxTXI=') 
+    @signature = Digest::MD5.hexdigest(@policy+'&'+'kP34t27f602TN1hWsVomI0NxTXI=')
   end
 
   def create
@@ -32,6 +32,19 @@ class SongsController < ApplicationController
       else
         render :new
       end
+    end
+  end
+
+  def zan
+    @song = Song.find(params[:id])
+    if @song.popular_number.blank?
+      @song.popular_number = 1
+    else
+      @song.popular_number += 1
+    end
+    @song.save
+    respond_to do |format|
+      format.js {}
     end
   end
 

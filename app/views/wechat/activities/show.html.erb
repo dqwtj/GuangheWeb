@@ -3,8 +3,10 @@
 		<div class="topbar">
 			<div class="pause_button toucha"></div>
 			<div class="play_button toucha"></div>
-			<div class="song_title">
-				<%= @song.name %>·<%= @song.idol.name %>
+			<div id="marquee" class="song_title gray_font">
+				<marquee scrollamount="2">
+					<%= @song.name %>·<%= @song.idol.name %>
+				</marquee>
 			</div>
 		</div>
 		<div class="panel">
@@ -12,12 +14,13 @@
 			<div class="paper">
 				<div class="papertop"></div>
 				<div class="paperbottom">
-					<div class="song_description">
+					<div class="song_description gray_font">
 						<%= @song.description %>
 					</div>
 				</div>
 			</div>
-			<div class="like_button toucha"></div>
+			
+			<%= link_to raw('<div class="like_button toucha"></div>'), zan_song_path(@song), :remote => true %>	
 		</div>
 	</div>
 </div>
@@ -26,5 +29,5 @@
 	$(document).ready(function() {
 		$(".toucha").on("touchstart", function() {
 		});
-	}); 
+	});
 </script>
