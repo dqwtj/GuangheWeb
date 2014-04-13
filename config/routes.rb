@@ -5,9 +5,11 @@ WechatFans::Application.routes.draw do
   get 'admission' => "home#admission"
   get 'producer' => 'home#producer' 
   get 'billboard' => 'home#billboard'
+  get 'recruit' => 'home#recruit'
   get 'idols/profile' => 'idols#profile'
   put 'idols/profile' => 'idols#update'
   resources :applies
+  resources :recruits, onlu: [:create]
   resources :songs
   resources :idols, only: [:index]
 

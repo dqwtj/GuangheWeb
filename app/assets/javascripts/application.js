@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap/transition
 //= require bootstrap/dropdown
+//= require bootstrap/collapse
 //= require jquery.ui.widget
 //= require jquery.fileupload
 //= require masonry.pkgd.min

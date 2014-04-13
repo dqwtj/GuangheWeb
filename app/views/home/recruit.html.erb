@@ -1,0 +1,82 @@
+<%= simple_form_for([@recruit]) do |f| %>
+<div class="gh-recruit-main">
+	<div class="container">
+		<h1>互联网改变音乐的革命已经开始</h1>
+		<p class="lead">这是一个最坏的时代，也是最好的时代<br />放下过去的荣耀，迎接新的光辉</p>
+		<hr />
+		<p class="lead">光合音乐认为信息时代的唱片公司<br />=<br />解决更多的中小型音乐人的成长难题</p>
+		<p class="lead">高品质音乐服务不再服务少数人<br />让每一个人都成为音乐的创造者</p>
+	</div>
+</div>
+
+<div class="gh-recruit-main default">
+	<div class="container">
+		<h3>第一批召集令</h3>
+		<p class="lead">截止日期<br />2014-4-30</p>
+		<p class="lead">接头地点<br />北京·五道口·宇宙中心</p>
+		
+	</div>
+</div>
+<div class="gh-recruit-main red">
+	<div class="container">
+		<h3>技术小分队</h3>
+		<p class="lead">致力于解决音乐服务规模化的问题<br />建立新的音乐人创作生态<br />以及用互联网手段服务更多的音乐粉丝</p>
+		<hr />
+		<p class="lead">和我们一起探索<br />什么样的产品，能互联网化的解决<br />近万名音乐偶像的内容需求</p>
+		<p class="lead">我的志愿</p>
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+		<%= f.input :it_ability, collection: ["我还没想好呢", "我是熟悉Rails的Web工程师", "我是熟悉iOS/Android开发的移动工程师", "我是拥有音乐产品开发经验的产品经理", "我是大神，我无所不能", "我是拥有智力光环的软妹子"], include_blank: false, label: false%>
+		</div>
+	</div>
+</div>
+<div class="gh-recruit-main blue">
+	<div class="container">
+		<h3>运营小分队</h3>
+		<p class="lead">全力打造代表互联网时代的音乐偶像<br />兼顾传统媒体和新媒体传播模式<br />寻求新的模式创新</p>
+		<hr />
+		<p class="lead">和我们一起实践<br />如何将传统唱片行业的经验，使用在<br />互联网时代下的音乐偶像们</p>
+		<p class="lead">我的志愿</p>
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+		<%= f.input :mkt_ability, collection: ["我还没想好呢", "我拥有多年的唱片行业的市场从业经历", "我拥有多年的互联网行业的新媒体从业经历", "我是大神，我无所不能", "我是拥有敏捷光环的软妹子"], include_blank: false, label: false%>
+		</div>
+	</div>
+</div>
+<div class="gh-recruit-main green">
+	<div class="container">
+		<h3>德智体小分队</h3>
+		<p class="lead">成为音乐行业在互联网时代的中坚力量<br />不断思考音乐的未来模式<br />并且愿意付诸实践</p>
+		<hr />
+		<p class="lead">毛主席说<br />要团结一切可以团结的力量<br />我们在等你</p>
+		<p class="lead">我的志愿</p>
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+		<%= f.input :other_ability, collection: ["我还没想好呢", "我是信息技术相关专业的学生", "我是文化传媒相关专业的学生","我是职业音乐人","我是投资人","我是媒体合作伙伴", "我是大神，我无所不能", "我是拥有力量光环的软妹子"], include_blank: false, label: false%>
+		</div>
+	</div>
+</div>
+<div class="gh-recruit-main default">
+	<div class="container">
+		<h3>距离召集令结束还有</h3>
+		<p class="lead">1天12小时23分</p>
+		<hr />
+		<p class="lead">相信您已经做好了上面的选择<br />那么也请留下姓名</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+		<%= f.input :name, placeholder: "请留下您的姓名（必填）", label: false %>
+		</div></div>
+		<p class="lead">和常用的联系方式</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+			<%= f.input :wechat, placeholder: "请留下您的手机号/微信号（必填）", label: false %>
+		</div></div>
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: 10px; margin-bottom: 20px;">
+			<%= f.submit '提交申请', :class => "btn btn-outline btn-lg btn-block", :disable_with => '保存中' %>
+			<p style="margin-top: 5px;">获得惟一接头暗号</p>
+		</div>	
+	</div>
+</div>
+
+<% end %>
+
+<% content_for :title do %>
+光合音乐第一次人才召集令
+<% end %>

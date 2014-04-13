@@ -12,4 +12,10 @@ class HomeController < ApplicationController
      
   end
   
+  def recruit
+    
+    @recruit = Recruit.new
+     
+  end
+  
 end
