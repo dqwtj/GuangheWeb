@@ -3,12 +3,19 @@
 		<div class="topbar">
 			<div class="pause_button toucha"></div>
 			<div class="play_button toucha"></div>
+			<div class="song_title">
+				<%= @song.name %>·<%= @song.idol.name %>
+			</div>
 		</div>
 		<div class="panel">
 			<!-- <div class="cd"></div> -->
 			<div class="paper">
 				<div class="papertop"></div>
-				<div class="paperbottom"></div>
+				<div class="paperbottom">
+					<div class="song_description">
+						<%= @song.description %>
+					</div>
+				</div>
 			</div>
 			<div class="like_button toucha"></div>
 		</div>
@@ -16,8 +23,8 @@
 </div>
 
 <script>
-	$( document ).ready(function() {
-		$(".toucha").on("touchstart", function(){
+	$(document).ready(function() {
+		$(".toucha").on("touchstart", function() {
 		});
-	});
+	}); 
 </script>
