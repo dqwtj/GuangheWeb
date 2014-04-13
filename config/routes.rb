@@ -9,8 +9,12 @@ WechatFans::Application.routes.draw do
   get 'idols/profile' => 'idols#profile'
   put 'idols/profile' => 'idols#update'
   resources :applies
-  resources :recruits, onlu: [:create]
-  resources :songs
+  resources :recruits, only: [:create]
+  resources :songs do
+    member do
+      get 'zan'
+    end
+  end
   resources :idols, only: [:index]
 
   namespace :cpanel do
