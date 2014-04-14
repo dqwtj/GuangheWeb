@@ -1,4 +1,5 @@
-<%= simple_form_for([@recruit]) do |f| %>
+<div id="gh-recruit-step1">
+<%= simple_form_for(@recruit, remote: true) do |f| %>
 <div class="gh-recruit-main">
 	<div class="container">
 		<h1>互联网改变音乐的革命已经开始</h1>
@@ -14,7 +15,7 @@
 		<h3>第一批召集令</h3>
 		<p class="lead">截止日期<br />2014-4-30</p>
 		<p class="lead">接头地点<br />北京·五道口·宇宙中心</p>
-		
+		<p class="lead">诚邀请<br />对音乐产业的未来怀有信念的你</p>
 	</div>
 </div>
 <div class="gh-recruit-main red">
@@ -25,7 +26,7 @@
 		<p class="lead">和我们一起探索<br />什么样的产品，能互联网化的解决<br />近万名音乐偶像的内容需求</p>
 		<p class="lead">我的志愿</p>
 		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
-		<%= f.input :it_ability, collection: ["我还没想好呢", "我是熟悉Rails的Web工程师", "我是熟悉iOS/Android开发的移动工程师", "我是拥有音乐产品开发经验的产品经理", "我是大神，我无所不能", "我是拥有智力光环的软妹子"], include_blank: false, label: false%>
+		<%= f.input :it_ability, collection: ["我还没想好呢", "我是熟悉Rails的Web工程师", "我是熟悉APP开发的移动工程师", "我是音乐互联网产品经理", "我是大神，我无所不能", "我是拥有智力光环的软妹子"], include_blank: false, label: false%>
 		</div>
 	</div>
 </div>
@@ -56,7 +57,8 @@
 <div class="gh-recruit-main default">
 	<div class="container">
 		<h3>距离召集令结束还有</h3>
-		<p class="lead">1天12小时23分</p>
+		<% t = Time.now %>
+		<p class="lead"><%= 30 - t.day %>天<%= 23 - t.hour %>小时<%= 60 - t.min%>分</p>
 		<hr />
 		<p class="lead">相信您已经做好了上面的选择<br />那么也请留下姓名</p>
 		<div class="row">
@@ -69,14 +71,17 @@
 			<%= f.input :wechat, placeholder: "请留下您的手机号/微信号（必填）", label: false %>
 		</div></div>
 		<div class="col-sm-4 col-sm-offset-4" style="margin-top: 10px; margin-bottom: 20px;">
-			<%= f.submit '提交申请', :class => "btn btn-outline btn-lg btn-block", :disable_with => '保存中' %>
+			<%= f.submit '确认提交', :class => "btn btn-outline btn-lg btn-block", :disable_with => '保存中' %>
 			<p style="margin-top: 5px;">获得惟一接头暗号</p>
 		</div>	
 	</div>
 </div>
-
 <% end %>
+</div>
+<div id="gh-recruit-step2"></div>
+
+<div id="gh-recruit-step3"></div>
 
 <% content_for :title do %>
-光合音乐第一次人才召集令
+光合音乐人才召集令
 <% end %>

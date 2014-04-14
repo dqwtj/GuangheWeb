@@ -1,0 +1,4 @@
+$("#gh-recruit-step1").fadeOut(500, function() {
+	$("html, body").scrollTop(0);
+});
+$("<%= escape_javascript(render 'confirm', :recruit => @recruit) %>").appendTo("#gh-recruit-step2");

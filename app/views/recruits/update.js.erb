@@ -1,0 +1,5 @@
+$("#gh-recruit-step2").fadeOut(500, function() {
+	$("html, body").scrollTop(0);
+});
+$("<%= escape_javascript(render 'final') %>").appendTo("#gh-recruit-step3");
+$("html, body").scrollTop(0);

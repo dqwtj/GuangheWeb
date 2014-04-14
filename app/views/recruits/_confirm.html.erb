@@ -1,0 +1,33 @@
+<%= simple_form_for([@recruit], url: "recruits/"+@recruit.id, method: :put, remote: true) do |f| %>
+<div class="gh-recruit-main default">
+	<div class="container">
+		<h3>咱的接头暗号是</h3>
+		<p class="lead"><%= @recruit.code %></p>
+		<hr />
+		<p class="lead">我们想更好的了解您<br />希望能够回答如下这个问题</p>
+		<p class="lead">请您设想一下<br />10年后的音乐产业会是什么样呢？</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+		<%= f.input :ten_answer, :as => :text, :label => false, :input_html =>{ :rows => "6" } %>
+		</div></div>
+		<p class="lead">您还有什么话想对我们说吗？</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+		<%= f.input :more_answer, :as => :text, :label => false, :input_html =>{ :rows => "4" } %>
+		</div></div>
+		<p class="lead">如果您有简历或是其他材料<br />可以发送到</p>
+		<p class="lead">join@guanghemusic.com</p>
+		<p class="lead">记得在标题附上暗号哦~否则无视</p>
+		<hr />
+		<p class="lead">最后一个问题⋯⋯<br />你是认真的吗？</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
+		<%= f.input :last_answer, collection: ["我就是想看看暗号是啥", "你们做的真有意思", "我要加入你们！", "你们到底是做啥的？", "我是被骗来的路人"], include_blank: false, label: false%>
+		</div></div>
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: 10px; margin-bottom: 20px;">
+			<%= f.submit '我决定要申请', :class => "btn btn-outline btn-lg btn-block", :disable_with => '保存中' %>
+			<p style="margin-top: 5px;">目前已收到<%= Recruit.all.count %>份申请</p>
+		</div>	
+	</div>
+</div>
+<% end %>

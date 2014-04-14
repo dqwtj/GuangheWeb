@@ -9,7 +9,7 @@ WechatFans::Application.routes.draw do
   get 'idols/profile' => 'idols#profile'
   put 'idols/profile' => 'idols#update'
   resources :applies
-  resources :recruits, only: [:create]
+  resources :recruits, only: [:create, :update]
   resources :songs do
     member do
       get 'zan'
