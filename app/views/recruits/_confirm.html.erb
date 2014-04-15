@@ -1,14 +1,19 @@
 <%= simple_form_for([@recruit], url: "recruits/"+@recruit.id, method: :put, remote: true) do |f| %>
 <div class="gh-recruit-main default">
 	<div class="container">
-		<h3>咱的接头暗号是</h3>
-		<p class="lead"><%= @recruit.code %></p>
+		<p class="lead">咱的接头暗号是</p>
+		<h3 style="margin-top: -10px;">“ <%= @recruit.code %> ”</h3>
 		<hr />
 		<p class="lead">我们想更好的了解您<br />希望能够回答如下这个问题</p>
-		<p class="lead">请您设想一下<br />10年后的音乐产业会是什么样呢？</p>
+		<p class="lead">周围的朋友们每天听音乐的时间<br />是变多还是变少了？</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 10px;">
+		<%= f.input :mkt_ability, collection: ["我还没想好呢", "变多了", "变少了", "不变"], include_blank: false, label: false%>
+		</div></div>
+		<p class="lead">原因可能会是？</p>
 		<div class="row">
 		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
-		<%= f.input :ten_answer, :as => :text, :label => false, :input_html =>{ :rows => "6" } %>
+		<%= f.input :ten_answer, :as => :text, :label => false, :input_html =>{ :rows => "2" } %>
 		</div></div>
 		<p class="lead">您还有什么话想对我们说吗？</p>
 		<div class="row">
