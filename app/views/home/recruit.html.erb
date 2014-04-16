@@ -85,3 +85,67 @@
 <% content_for :title do %>
 光合音乐人才召集令
 <% end %>
+
+<% content_for :scripts do %>
+<script type="text/javascript">
+var dataForWeixin={
+	appId:	"",
+	img:	"http://guanghe-photo.b0.upaiyun.com/home/gh-logo-square.jpg!avatarsmall", 
+	url:	"http://guanghemusic.com/recruit",
+	title:	"光合音乐人才招募",
+	desc:	"作为信息时代的唱片公司，我们诚挚邀请对音乐产业的未来怀有信念的你，加入到我们这场音乐革命之中",
+	fakeid:	"",
+};
+(function(){
+	var onBridgeReady=function(){
+		// 发送给好友;
+		WeixinJSBridge.on('menu:share:appmessage', function(argv){
+			WeixinJSBridge.invoke('sendAppMessage',{
+				"appid":		dataForWeixin.appId,
+				"img_url":		dataForWeixin.img,
+				"img_width":	"120",
+				"img_height":	"120",
+				"link":			dataForWeixin.url,
+				"desc":			dataForWeixin.desc,
+				"title":		dataForWeixin.title
+			}, function(res){});
+		});
+		// 分享到朋友圈;
+		WeixinJSBridge.on('menu:share:timeline', function(argv){
+			WeixinJSBridge.invoke('shareTimeline',{
+			"img_url":dataForWeixin.img,
+			"img_width":"120",
+			"img_height":"120",
+			"link":dataForWeixin.url,
+			"desc":dataForWeixin.desc,
+			"title":dataForWeixin.title
+			}, function(res){});
+		});
+		// 分享到微博;
+		WeixinJSBridge.on('menu:share:weibo', function(argv){
+			WeixinJSBridge.invoke('shareWeibo',{
+			"content":dataForWeixin.title+' '+dataForWeixin.url,
+			"url":dataForWeixin.url
+			}, function(res){});
+		});
+		// 分享到Facebook
+		WeixinJSBridge.on('menu:share:facebook', function(argv){
+			WeixinJSBridge.invoke('shareFB',{
+			"img_url":dataForWeixin.img,
+			"img_width":"120",
+			"img_height":"120",
+			"link":dataForWeixin.url,
+			"desc":dataForWeixin.desc,
+			"title":dataForWeixin.title
+			}, function(res){});
+		});
+	};
+	if(document.addEventListener){
+		document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	}else if(document.attachEvent){
+		document.attachEvent('WeixinJSBridgeReady'   , onBridgeReady);
+		document.attachEvent('onWeixinJSBridgeReady' , onBridgeReady);
+	}
+})();
+</script>
+<% end %>
