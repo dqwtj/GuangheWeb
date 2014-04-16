@@ -8,7 +8,10 @@ class Recruit
   field :mkt_ability
   field :other_ability
   field :code
-  field :ten_answer
+  field :q1_answer
+  field :q1_more
+  field :q2_answer
+  field :q2_more
   field :more_answer
   field :last_answer
   

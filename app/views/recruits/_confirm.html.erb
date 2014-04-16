@@ -5,26 +5,40 @@
 		<h3 style="margin-top: -10px;">“ <%= @recruit.code %> ”</h3>
 		<hr />
 		<p class="lead">我们想更好的了解您<br />希望能够回答如下这个问题</p>
+		<p class="lead" style="margin-top: 30px; margin-bottom: 5px">问题一：</p>
 		<p class="lead">周围的朋友们每天听音乐的时间<br />是变多还是变少了？</p>
 		<div class="row">
 		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 10px;">
-		<%= f.input :mkt_ability, collection: ["我还没想好呢", "变多了", "变少了", "不变"], include_blank: false, label: false%>
+		<%= f.input :q1_answer, collection: ["我还没想好呢", "变多了", "变少了", "不变", "看情况"], include_blank: false, label: false%>
 		</div></div>
 		<p class="lead">原因可能会是？</p>
 		<div class="row">
-		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
-		<%= f.input :ten_answer, :as => :text, :label => false, :input_html =>{ :rows => "2" } %>
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 30px;">
+		<%= f.input :q1_more, :as => :text, :label => false, :input_html =>{ :rows => "2" } %>
+		</div></div>
+		<p class="lead" style="margin-top: 0px; margin-bottom: 5px">问题二：</p>
+		<p class="lead">在当下的音乐传播中<br />媒体重要还是自媒体更重要？</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 10px;">
+		<%= f.input :q2_answer, collection: ["我还没想好呢", "媒体", "自媒体", "都重要", "看情况"], include_blank: false, label: false%>
+		</div></div>
+		<p class="lead">您的理由是？</p>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 30px;">
+		<%= f.input :q2_more, :as => :text, :label => false, :input_html =>{ :rows => "2" } %>
 		</div></div>
 		<p class="lead">您还有什么话想对我们说吗？</p>
 		<div class="row">
 		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
 		<%= f.input :more_answer, :as => :text, :label => false, :input_html =>{ :rows => "4" } %>
 		</div></div>
+		<hr />
 		<p class="lead">如果您有简历或是其他材料<br />可以发送到</p>
-		<p class="lead">join@guanghemusic.com</p>
+		<p class="lead" style="text-decoration : underline;">join@guanghemusic.com</p>
 		<p class="lead">记得在标题附上暗号哦~否则无视</p>
 		<hr />
-		<p class="lead">最后一个问题⋯⋯<br />你是认真的吗？</p>
+		<p class="lead">最后一个问题⋯⋯</p>
+		<p class="lead">您是认真的吗？</p>
 		<div class="row">
 		<div class="col-sm-4 col-sm-offset-4" style="margin-top: -10px; margin-bottom: 20px;">
 		<%= f.input :last_answer, collection: ["我就是想看看暗号是啥", "你们做的真有意思", "我要加入你们！", "你们到底是做啥的？", "我是被骗来的路人"], include_blank: false, label: false%>
