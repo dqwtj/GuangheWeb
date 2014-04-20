@@ -11,11 +11,10 @@
 							<h3><%= card.song.name %></h3>
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="<%= card.pop_number / 1000 %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= card.pop_number / 10 %>%;">
-									<%= card.pop_number %>/1000人气
 								</div>
 							</div>
 							<p>
-								<%= card.pop_number %>/1000人气升级到绿色
+								<%= card.pop_number %>/<%= card.get_upgrade_target %>人气升级到绿色
 							</p>
 							<p class="song-info">
 								<%= card.song.description %>

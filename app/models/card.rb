@@ -23,4 +23,19 @@ class Card
       "unknown"
     end
   end
+  
+  def get_upgrade_target
+    case self.quality
+    when 0
+      1000
+    when 1
+      3000
+    when 2
+      7000
+    when 3
+      12000
+    else
+      99999999
+    end    
+  end
 end

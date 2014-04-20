@@ -47,13 +47,15 @@ class SongsController < ApplicationController
   end
 
   def zan
-    @song = Song.find(params[:id])
-    if @song.popular_number.blank?
-      @song.popular_number = 1
-    else
-      @song.popular_number += 1
-    end
-    @song.save
+    # song = Song.find(params[:id])
+    # if @song.popular_number.blank?
+      # @song.popular_number = 1
+    # else
+      # @song.popular_number += 1
+    # end
+    # @song.save
+    @songcard = Songcard.last
+    @songcard.inc(:pop_number => 1)
     respond_to do |format|
       format.js {}
     end
