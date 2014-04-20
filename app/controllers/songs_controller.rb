@@ -2,7 +2,7 @@ class SongsController < ApplicationController
 
   before_filter :authenticate_idol!
   def index
-    @songs = current_idol.songs
+    @cards = current_idol.cards
   end
 
   def new
@@ -27,11 +27,22 @@ class SongsController < ApplicationController
       @song.sceneid = @sceneid
       @song.ticket = get_ticket(@sceneid)
       @song.idol = current_idol
-      if @song.save
+      @songcard = Songcard.new(:pop_number => 0, :quality => 0, :mp3_url => @song.url, :idol => @song.idol)
+      @songcard.song = @song
+      if @song.save and @songcard.save
         redirect_to songs_path, :notice => "保存成功"
       else
         render :new
       end
+    end
+  end
+  
+  def update
+    @song = Song.find(params[:id])
+    if @song.update_attributes(params[:song].permit!)
+      redirect_to songs_path, :notice => "保存成功"
+    else
+      render :new
     end
   end
 

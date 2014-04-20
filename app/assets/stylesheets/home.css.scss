@@ -334,6 +334,15 @@ p.myself-header-info {
   margin-bottom: 20px;
 }
 
+p.song-info {
+  width:100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  height:40px;
+}
 
 /* Hack Bootstrap nav btn */
 .nav .open > a.btn-outline-inverse {
@@ -348,5 +357,3 @@ p.myself-header-info {
     background-image: image-url('gc-logo@2x.png');
   }
 }
-
-

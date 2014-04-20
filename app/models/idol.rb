@@ -61,6 +61,7 @@ class Idol
 
   has_many :contributions
   has_many :songs
+  has_many :cards
   has_many :albums
   has_many :tasks
   has_and_belongs_to_many :fans, :class_name => 'User', :inverse_of => :idols

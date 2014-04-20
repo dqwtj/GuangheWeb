@@ -11,7 +11,6 @@ class Song
   field :level,      :type => Integer, :default => 0
   field :ticket
   field :sceneid
-  field :popular_number
   
   has_many :contributions
   has_many :activities
