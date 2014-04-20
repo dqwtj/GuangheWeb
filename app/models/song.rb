@@ -17,7 +17,7 @@ class Song
   has_one :photo
   belongs_to :album
   belongs_to :idol
-  
+  has_many :cards
   counter_cache :name => :idol, :inverse_of => :songs
   def mp3_url
     self.url.blank? ? "#" : self.upyun_url + self.url

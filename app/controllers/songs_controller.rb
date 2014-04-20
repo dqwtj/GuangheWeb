@@ -2,7 +2,7 @@ class SongsController < ApplicationController
 
   before_filter :authenticate_idol!
   def index
-    @cards = current_idol.cards
+    @songs = current_idol.songs
   end
 
   def new
@@ -56,6 +56,12 @@ class SongsController < ApplicationController
     # @song.save
     @songcard = Songcard.last
     @songcard.inc(:pop_number => 1)
+    # may cause some concurrent problem
+    if @songcard.pop_number >= @songcard.get_upgrade_target and @songcard.is_upgraded.blank?
+      @songcard.is_upgraded = true
+      @newsongcard = Songcard.new(:song => @songcard.song, :pop_number => 0, :quality => @songcard.quality + 1, :idol => @songcard.idol, :is_creating => true)
+      @newsongcard.save
+    end
     respond_to do |format|
       format.js {}
     end
