@@ -12,7 +12,7 @@
 		<div class="gh-admission-item row">
 			<div class="col-sm-6">
 				<h3 class="gh-admission-title">“过去音乐人遇到的最大难题就是如何迈出第一步，<br />光合入场券希望通过精心设计的六个任务<br />让每一个音乐人顺利启程。”</h3>
-				<p class="gh-admission-subtitle">光合音乐CEO，王天居</p>
+				<%= image_tag "gh-fanspal-usercase.jpg", :class => "img-responsive" %>
 			</div>
 			<div class="col-sm-6">
 				<div class="gh-timeline-container">
@@ -32,13 +32,13 @@
 							<a class="btn btn-lg btn-outline">第8天：一鸣惊人</a>
 						</div>
 						<div class="gh-timeline-minor">
-							<h4>升级第一张绿卡，总人气值达到4000，解锁第一张视频特别卡</h4>
+							<h4>升级第一张绿卡，总人气值达到4000，解锁第一支音乐视频</h4>
 						</div>
 						<div class="gh-timeline-major">
 							<a class="btn btn-lg btn-outline">第12天：再接再厉</a>
 						</div>
 						<div class="gh-timeline-minor">
-							<h4>升级第二张绿卡，总人气值达到6000，解锁第二张视频特别卡</h4>
+							<h4>升级第二张绿卡，总人气值达到6000，解锁第二支音乐视频</h4>
 						</div>
 						<div class="gh-timeline-major">
 							<a class="btn btn-lg btn-outline">第18天：整装待发</a>
@@ -50,7 +50,7 @@
 							<a class="btn btn-lg btn-outline">第25天：小有所成</a>
 						</div>
 						<div class="gh-timeline-minor">
-							<h4>完成在线演唱会，总人气值达到15000，解锁演唱会特别卡</h4>
+							<h4>完成在线演唱会，总人气值达到15000，解锁演唱会视频</h4>
 						</div>
 				</div>
 			</div>
@@ -59,23 +59,26 @@
 		<h2>超乎想象的音乐服务，和我们一起全力以赴</h2>
 		<p class="lead">对于创造好音乐，我们和你一样精益求精</p>
 		<div class="row">
-			<div class="col-sm-4">
-				<h4>金牌制作团队</h4>
+			<div class="col-sm-4 gh-service-item">
+				<%= image_tag "gh-service-p1.png", :class => "img-responsive" %>
+				<div class="gh-service-caption">
+					<h3>金牌制作团队</h3>
+					<p>由光合精选的制作团队做你最坚实的后援</p>
+				</div>
 			</div>
-			<div class="col-sm-4">
-				<h4>光合之家</h4>
+			<div class="col-sm-4 gh-service-item">
+				<%= image_tag "gh-service-p2.png", :class => "img-responsive" %>
+				<div class="gh-service-caption">
+					<h3>光合之家</h3>
+					<p>音乐需要听众，也需要一个温暖的家</p>
+				</div>
 			</div>
-			<div class="col-sm-4">
-				<h4>光合小伙伴</h4>
-			</div>
-			<div class="col-sm-4">
-				<h4>光合云分发</h4>
-			</div>
-			<div class="col-sm-4">
-				<h4>光合版权库</h4>
-			</div>
-			<div class="col-sm-4">
-				<h4>光合商城</h4>
+			<div class="col-sm-4 gh-service-item">
+				<%= image_tag "gh-service-p3.png", :class => "img-responsive" %>
+				<div class="gh-service-caption">
+					<h3>光合小伙伴</h3>
+					<p>让你的音乐之旅永远不会孤军奋战</p>
+				</div>
 			</div>
 		</div>
 		<hr />
@@ -84,17 +87,17 @@
 		<hr />
 		<div class="row">
 			<div class="col-sm-4">
-				<%= image_tag "gh-logo-lv1.png" %>
+				<%= image_tag "gh-fanspal-f1.png" %>
 				<h4>全平台聚合</h4>
 				<p>通过二维码，在各个平台上锁定核心粉丝汇聚在此</p>
 			</div>
 			<div class="col-sm-4">
-				<%= image_tag "gh-logo-lv2.png" %>
+				<%= image_tag "gh-fanspal-f2.png" %>
 				<h4>无需众筹</h4>
 				<p>粉丝点赞，你来做歌，让粉丝和你一起成长</p>
 			</div>
 			<div class="col-sm-4">
-				<%= image_tag "gh-logo-lv3.png" %>
+				<%= image_tag "gh-fanspal-f3.png" %>
 				<h4>粉丝大数据</h4>
 				<p>谁是铁杆粉丝，粉丝最喜欢哪首歌，种种难题不再迷茫</p>
 			</div>

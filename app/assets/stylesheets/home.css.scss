@@ -161,6 +161,31 @@
   margin-top: 5px;
 }
 
+.gh-service-item {
+  position: relative;
+  padding: 0 0;
+}
+
+.gh-service-item .gh-service-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #FFF;
+  width: 100%;
+  height: 100%;
+}
+
+.gh-service-item .gh-service-caption h3 {
+  margin-top: 33%;
+}
+
+.gh-service-item .gh-service-caption:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
 /* Recruit Intro Page */
 
 .gh-recruit-main {
