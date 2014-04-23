@@ -11,14 +11,13 @@ class Song
   field :level,      :type => Integer, :default => 0
   field :ticket
   field :sceneid
-  field :popular_number
   
   has_many :contributions
   has_many :activities
   has_one :photo
   belongs_to :album
   belongs_to :idol
-  
+  has_many :cards
   counter_cache :name => :idol, :inverse_of => :songs
   def mp3_url
     self.url.blank? ? "#" : self.upyun_url + self.url

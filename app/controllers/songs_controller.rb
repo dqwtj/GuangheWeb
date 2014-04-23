@@ -27,22 +27,41 @@ class SongsController < ApplicationController
       @song.sceneid = @sceneid
       @song.ticket = get_ticket(@sceneid)
       @song.idol = current_idol
-      if @song.save
+      @songcard = Songcard.new(:pop_number => 0, :quality => 0, :mp3_url => @song.url, :idol => @song.idol)
+      @songcard.song = @song
+      if @song.save and @songcard.save
         redirect_to songs_path, :notice => "保存成功"
       else
         render :new
       end
     end
   end
+  
+  def update
+    @song = Song.find(params[:id])
+    if @song.update_attributes(params[:song].permit!)
+      redirect_to songs_path, :notice => "保存成功"
+    else
+      render :new
+    end
+  end
 
   def zan
-    @song = Song.find(params[:id])
-    if @song.popular_number.blank?
-      @song.popular_number = 1
-    else
-      @song.popular_number += 1
+    # song = Song.find(params[:id])
+    # if @song.popular_number.blank?
+      # @song.popular_number = 1
+    # else
+      # @song.popular_number += 1
+    # end
+    # @song.save
+    @songcard = Songcard.last
+    @songcard.inc(:pop_number => 1)
+    # may cause some concurrent problem
+    if @songcard.pop_number >= @songcard.get_upgrade_target and @songcard.is_upgraded.blank?
+      @songcard.is_upgraded = true
+      @newsongcard = Songcard.new(:song => @songcard.song, :pop_number => 0, :quality => @songcard.quality + 1, :idol => @songcard.idol, :is_creating => true)
+      @newsongcard.save
     end
-    @song.save
     respond_to do |format|
       format.js {}
     end
