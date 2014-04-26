@@ -60,11 +60,11 @@ class Card
     when 0
       0
     when 1
-      1000
+      10000
     when 2
-      2000
+      20000
     when 3
-      4000
+      40000
     else
       99999999
     end

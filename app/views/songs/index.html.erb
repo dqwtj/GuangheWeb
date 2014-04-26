@@ -23,7 +23,7 @@
 							</p>
 							<p>
 								<% if @lastcard.is_creating %>
-								<div class="btn btn-outline" data-countdown="<%= @lastcard.get_remaining_time %>"></div>
+								<div class="btn btn-outline" data-countdown="<%= Time.now.to_i + @lastcard.get_remaining_time %>"></div>
 								<%= @lastcard.get_remaining_time %>
 
 								<% else %>
@@ -47,7 +47,7 @@
 <script>
 	$('[data-countdown]').each(function() {
 		var $this = $(this), seconds = $(this).data('countdown');
-		var selectedDate = new Date().valueOf() + parseInt(seconds) * 1000;
+		var selectedDate = parseInt(seconds) * 1000;
 		$this.countdown(selectedDate.toString(), function(event) {
 			$this.html(event.strftime('升级剩余时间  %H:%M:%S'));
 		}).on('finish.countdown', function(event) {
