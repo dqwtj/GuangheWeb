@@ -19,5 +19,6 @@
 //= require jquery.ui.widget
 //= require jquery.fileupload
 //= require masonry.pkgd.min
+//= require jquery.countdown.min
 
 

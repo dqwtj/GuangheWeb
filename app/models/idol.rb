@@ -56,6 +56,7 @@ class Idol
   field :other_url
   field :description
   field :similar_artist
+  field :pop_number, :default => 0
 
   field :songs_count, :type => Integer, :default => 0
 

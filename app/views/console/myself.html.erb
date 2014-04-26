@@ -3,13 +3,13 @@
 		<div class="row">
 			<div class="col-md-4">
 				<a href="<%= songs_path %>" class="btn btn-outline btn-lg btn-block">
-					<h3><span class="glyphicon glyphicon-music"></span> 23</h3>
+					<h3><span class="glyphicon glyphicon-music"></span> <%= current_idol.songs.count%></h3>
 					<p class="lead">总歌曲数</p>
 				</a>
   			</div>
   			<div class="col-md-4">
 				<a href="<%= songs_path %>" class="btn btn-outline btn-lg btn-block">
-					<h3><span class="glyphicon glyphicon-thumbs-up"></span> 1259</h3>
+					<h3><span class="glyphicon glyphicon-thumbs-up"></span> <%= current_idol.pop_number%></h3>
 					<p class="lead">粉丝宝余额</p>
 				</a>
   			</div>

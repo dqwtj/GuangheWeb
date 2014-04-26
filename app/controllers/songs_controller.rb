@@ -2,6 +2,13 @@ class SongsController < ApplicationController
 
   before_filter :authenticate_idol!
   def index
+    current_idol.songs.each do |song|
+      @card  = song.cards.last
+      if @card and @card.is_creating and @card.get_remaining_time < 0
+        @card.is_creating = false
+        @card.save
+      end
+    end
     @songs = current_idol.songs
   end
 
@@ -12,7 +19,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(params[:song].permit!)
+    @song = current_idol.songs.new(params[:song].permit!)
     if @song.url == ""
       flash[:alert] = "您未上传歌曲或歌曲没有上传完毕"
       @policy = Base64.encode64({:bucket => 'guanghe-file', :expiration => (Time.now().to_i + 3600), 'save-key' => "/sounds/{filemd5}{.suffix}","allow-file-type" =>"mp3,wav","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
@@ -26,8 +33,8 @@ class SongsController < ApplicationController
       @sceneid += 1
       @song.sceneid = @sceneid
       @song.ticket = get_ticket(@sceneid)
-      @song.idol = current_idol
-      @songcard = Songcard.new(:pop_number => 0, :quality => 0, :mp3_url => @song.url, :idol => @song.idol)
+      @songcard = Songcard.new(:mp3_url => @song.url, :is_creating => false)
+      @songcard.idol = current_idol
       @songcard.song = @song
       if @song.save and @songcard.save
         redirect_to songs_path, :notice => "保存成功"
@@ -55,11 +62,12 @@ class SongsController < ApplicationController
     # end
     # @song.save
     @songcard = Songcard.last
-    @songcard.inc(:pop_number => 1)
+    @songcard.add_one_popnumber
     # may cause some concurrent problem
     if @songcard.pop_number >= @songcard.get_upgrade_target and @songcard.is_upgraded.blank?
       @songcard.is_upgraded = true
-      @newsongcard = Songcard.new(:song => @songcard.song, :pop_number => 0, :quality => @songcard.quality + 1, :idol => @songcard.idol, :is_creating => true)
+      @newsongcard = Songcard.new(:quality => @songcard.quality + 1, :idol => @songcard.idol)
+      @newsongcard.song = @songcard.song
       @newsongcard.save
     end
     respond_to do |format|

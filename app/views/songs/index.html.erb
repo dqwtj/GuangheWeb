@@ -20,8 +20,14 @@
 								<%= song.description %>
 							</p>
 							<p>
+								<% if song.cards.last.is_creating %>
+								<div class="btn btn-outline" data-countdown="<%= song.cards.last.get_remaining_time %>"></div>
+								<%= song.cards.last.get_remaining_time %>
+
+								<% else %>
 								<a href="<%= edit_song_path(song) %>" class="btn btn-outline" role="button">编辑</a>
 								<a href="#" class="btn btn-outline" role="button">分享</a>
+								<% end %>
 							</p>
 						</div>
 					</div>
@@ -36,3 +42,14 @@
 	</div>
 
 </div>
+<script>
+	$('[data-countdown]').each(function() {
+		var $this = $(this), seconds = $(this).data('countdown');
+		var selectedDate = new Date().valueOf() + parseInt(seconds) * 1000;
+		$this.countdown(selectedDate.toString(), function(event) {
+			$this.html(event.strftime('升级剩余时间  %H:%M:%S'));
+		}).on('finish.countdown', function(event) {
+			alert("finish");
+		});
+	}); 
+</script>
