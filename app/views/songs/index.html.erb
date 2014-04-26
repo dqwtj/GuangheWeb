@@ -5,24 +5,26 @@
 			<div id="container" class="masonry js-masonry"  data-masonry-options='{"itemSelector": ".item" ,"isFitWidth": true}'>
 				<% @songs.each do |song| %>
 				<%   if !song.cards.last.blank? %>
+				<% @lastcard = song.cards.last %>
 				<div class="item">
-					<div class="thumbnail gh-song-panel <%= song.cards.last.get_quality_name %>">
+					<div class="thumbnail gh-song-panel <%= @lastcard.get_quality_name %>">
 						<img class="img-responsive"  alt="用户头像" src="http://guanghe-photo.b0.upaiyun.com/avatar/4b7dca79dd618be9ea5c93edd1ed71a6.png!avatarsmall">
 						<div class="caption">
+							
 							<h3><%= song.name %></h3>
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="<%= song.cards.last.pop_number / song.cards.last.get_upgrade_target %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= song.cards.last.pop_number * 100 / song.cards.last.get_upgrade_target %>%;"></div>
+								<div class="progress-bar" role="progressbar" aria-valuenow="<%= @lastcard.pop_number / @lastcard.get_upgrade_target %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @lastcard.pop_number * 100 / @lastcard.get_upgrade_target %>%;"></div>
 							</div>
 							<p>
-								<%= song.cards.last.pop_number %>/<%= song.cards.last.get_upgrade_target %>人气升级到绿色
+								<%= @lastcard.pop_number %>/<%= @lastcard.get_upgrade_target %>人气升级到<%= @lastcard.get_chinese_uality_name(@lastcard.quality + 1) %>
 							</p>
 							<p class="song-info">
 								<%= song.description %>
 							</p>
 							<p>
-								<% if song.cards.last.is_creating %>
-								<div class="btn btn-outline" data-countdown="<%= song.cards.last.get_remaining_time %>"></div>
-								<%= song.cards.last.get_remaining_time %>
+								<% if @lastcard.is_creating %>
+								<div class="btn btn-outline" data-countdown="<%= @lastcard.get_remaining_time %>"></div>
+								<%= @lastcard.get_remaining_time %>
 
 								<% else %>
 								<a href="<%= edit_song_path(song) %>" class="btn btn-outline" role="button">编辑</a>

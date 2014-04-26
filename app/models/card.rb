@@ -25,6 +25,21 @@ class Card
     end
   end
   
+  def get_chinese_uality_name(quality)
+    case quality
+    when 0
+      "白卡"
+    when 1
+      "绿卡"
+    when 2
+      "蓝卡"
+    when 3
+      "紫卡"
+    else
+      "神秘卡"
+    end
+  end
+  
   def get_upgrade_target
     case self.quality
     when 0
