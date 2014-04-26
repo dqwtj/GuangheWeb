@@ -26,8 +26,7 @@ class SongsController < ApplicationController
       @sceneid += 1
       @song.sceneid = @sceneid
       @song.ticket = get_ticket(@sceneid)
-      @song.idol = current_idol
-      @songcard = Songcard.new(:pop_number => 0, :quality => 0, :mp3_url => @song.url, :idol => @song.idol)
+      @songcard = current_idol.cards.new(:mp3_url => @song.url)
       @songcard.song = @song
       if @song.save and @songcard.save
         redirect_to songs_path, :notice => "保存成功"
@@ -55,11 +54,11 @@ class SongsController < ApplicationController
     # end
     # @song.save
     @songcard = Songcard.last
-    @songcard.inc(:pop_number => 1)
+    @songcard.add_one_popnumber
     # may cause some concurrent problem
     if @songcard.pop_number >= @songcard.get_upgrade_target and @songcard.is_upgraded.blank?
       @songcard.is_upgraded = true
-      @newsongcard = Songcard.new(:song => @songcard.song, :pop_number => 0, :quality => @songcard.quality + 1, :idol => @songcard.idol, :is_creating => true)
+      @newsongcard = @songcard.song.cards.new(:quality => @songcard.quality + 1, :idol => @songcard.idol)
       @newsongcard.save
     end
     respond_to do |format|

@@ -2,10 +2,11 @@ class Card
   include Mongoid::Document
   include Mongoid::Timestamps
   #white, green, blue, purple
-  field :quality
-  field :is_creating
+  field :quality, :default => 0
+  field :is_creating, :default => true
+  field :is_upgraded, :default => false
   #人气值
-  field :pop_number
+  field :pop_number, :default => 0
   has_many :slot
   belongs_to :song
   belongs_to :idol
@@ -37,5 +38,10 @@ class Card
     else
       99999999
     end    
+  end
+  
+  def add_one_popnumber
+    self.inc(:pop_number => 1)
+    self.song.idol.inc(:pop_number => 1)
   end
 end
