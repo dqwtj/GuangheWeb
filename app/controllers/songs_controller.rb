@@ -54,14 +54,12 @@ class SongsController < ApplicationController
   end
 
   def zan
-    # song = Song.find(params[:id])
-    # if @song.popular_number.blank?
-      # @song.popular_number = 1
-    # else
-      # @song.popular_number += 1
-    # end
-    # @song.save
-    @songcard = Songcard.last
+    @song = Song.find(params[:id])
+    if not @song.blank?
+      @songcard = @song.cards.last
+    else
+      @songcard = Songcard.last
+    end
     @songcard.add_one_popnumber
     # may cause some concurrent problem
     if @songcard.pop_number >= @songcard.get_upgrade_target and @songcard.is_upgraded.blank?
