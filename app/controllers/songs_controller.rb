@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
 
-  before_filter :authenticate_idol!
+  before_filter :authenticate_idol!, :except => [:zan]
   def index
     current_idol.songs.each do |song|
       @card  = song.cards.last
