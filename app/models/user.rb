@@ -11,6 +11,7 @@ class User
   
   has_many :contributions
   has_many :floors
+  has_many :cards
   has_many :chips
   has_and_belongs_to_many :idols, :inverse_of => :fans
   
