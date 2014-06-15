@@ -26,8 +26,6 @@
 		<%= f.input :wusing_url, :placeholder => "如果可以在5Sing上听到您的作品，请告诉我们主页的地址" %>
 		<%= f.input :similar_artist, :placeholder => "您认为风格和您相近的音乐人/歌手"%>
 		<%= f.input :description, :as => :text, :input_html => { :rows => "6" } %>
-		<%= hidden_field_tag :upyun_policy, @policy %>
-		<%= hidden_field_tag :upyun_signature, @signature %>
 		<%= f.input :avatar_url, :as => :hidden%>
 		<div class="actions">
 			<%= f.submit '保存修改', :class => "btn btn-primary btn-lg btn-block", :disable_with => '保存中' %>
@@ -45,14 +43,12 @@
 	$(function() {'use strict';
 		// Change this to the location of your server-side upload handler:
 		var url = "http://v0.api.upyun.com/guanghe-photo/";
-		var policy = $("#upyun_policy").val();
-		var signature = $("#upyun_signature").val();
 		$('#fileupload').fileupload({
 			url : url,
 			dataType : 'json',
 			formData : {
-				'policy' : policy,
-				'signature' : signature
+				'policy' : '<%= @policy %>',
+				'signature' : '<%= @signature %>'
 			},
 			method : 'post',
 			done : function(data) {

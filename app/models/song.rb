@@ -7,6 +7,7 @@ class Song
   field :lyrics
   field :description
   field :url
+  field :cardpicurl
   field :exp
   field :level,      :type => Integer, :default => 0
   field :ticket
@@ -19,6 +20,10 @@ class Song
   belongs_to :idol
   has_many :cards
   counter_cache :name => :idol, :inverse_of => :songs
+  def card_pic_url
+    self.cardpicurl.blank? ? 'http://guanghe-photo.b0.upaiyun.com/avatar/4b7dca79dd618be9ea5c93edd1ed71a6.png!avatarsmall' : self.upyun_photo_url + self.cardpicurl + '!card'
+  end
+  
   def mp3_url
     self.url.blank? ? "#" : self.upyun_url + self.url
   end
@@ -33,4 +38,7 @@ class Song
     "http://guanghe-file.b0.upaiyun.com"
   end
   
+  def upyun_photo_url
+    "http://guanghe-photo.b0.upaiyun.com"
+  end  
 end

@@ -42,6 +42,10 @@ class SongsController < ApplicationController
     end
   end
   
+  def edit
+    signature_generator
+  end
+  
   def update
     @song = Song.find(params[:id])
     if @song.update_attributes(params[:song].permit!)
@@ -108,8 +112,6 @@ class SongsController < ApplicationController
     @policy = Base64.encode64({:bucket => 'guanghe-file', :expiration => (Time.now().to_i + 3600), 'save-key' => "/sounds/{filemd5}{.suffix}","allow-file-type" =>"mp3,wav","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
     @signature = Digest::MD5.hexdigest(@policy+'&'+'kP34t27f602TN1hWsVomI0NxTXI=')
     @photo_policy = Base64.encode64({:bucket => 'guanghe-photo', :expiration => (Time.now().to_i + 3600), 'save-key' => "/card/{filemd5}{.suffix}","allow-file-type" =>"jpg,png,jpeg","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
-    @photo_signature = Digest::MD5.hexdigest(@policy+'&'+'pWyna2F/MDYvZ8lV4ETFX7tCXu8=')
-    @policy = Base64.encode64({:bucket => 'guanghe-photo', :expiration => (Time.now().to_i + 3600), 'save-key' => "/avatar/{filemd5}{.suffix}","allow-file-type" =>"jpg,png,jpeg","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
-    @signature = Digest::MD5.hexdigest(@policy+'&'+'pWyna2F/MDYvZ8lV4ETFX7tCXu8=')
+    @photo_signature = Digest::MD5.hexdigest(@photo_policy+'&'+'pWyna2F/MDYvZ8lV4ETFX7tCXu8=')
   end
 end
