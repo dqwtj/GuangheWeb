@@ -43,7 +43,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   
   def find_user(fromUser)
     @user = User.where(:fromUser => fromUser).first
-    if @user.empty?
+    if @user == nil
       @user = User.new(:fromUser => fromUser)
     end
     @user.save
