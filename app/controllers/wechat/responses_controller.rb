@@ -8,6 +8,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
 
   def create
     @action = recordlog
+    @user = find_user(@action.fromUser)
     if @action.type == "event"
       if @action.event == "SCAN"
         @song = Song.where(:ticket => @action.ticket).last
@@ -37,6 +38,14 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     @wechatlog.body = params[:xml]
     @wechatlog.save
     return @wechatlog
+  end
+  
+  def find_user(fromUser)
+    @user = User.where(:fromUser => fromUser).first
+    if @user.empty?
+      @user = User.new(:fromUser => fromUser)
+    end
+    return @user
   end
 
   private

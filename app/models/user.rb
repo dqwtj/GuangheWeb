@@ -8,6 +8,7 @@ class User
   field :hp
   field :last_recovery_time
   field :recovery_duration
+  field :fromUser
   
   has_many :contributions
   has_many :floors
