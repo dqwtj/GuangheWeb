@@ -1,4 +1,4 @@
-class Code
+class Album
   include Mongoid::Document
   include Mongoid::Timestamps
   

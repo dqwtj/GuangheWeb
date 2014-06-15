@@ -14,16 +14,14 @@ class SongsController < ApplicationController
 
   def new
     @song = current_idol.songs.new
-    @policy = Base64.encode64({:bucket => 'guanghe-file', :expiration => (Time.now().to_i + 3600), 'save-key' => "/sounds/{filemd5}{.suffix}","allow-file-type" =>"mp3,wav","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
-    @signature = Digest::MD5.hexdigest(@policy+'&'+'kP34t27f602TN1hWsVomI0NxTXI=')
+    signature_generator
   end
 
   def create
     @song = current_idol.songs.new(params[:song].permit!)
     if @song.url == ""
       flash[:alert] = "您未上传歌曲或歌曲没有上传完毕"
-      @policy = Base64.encode64({:bucket => 'guanghe-file', :expiration => (Time.now().to_i + 3600), 'save-key' => "/sounds/{filemd5}{.suffix}","allow-file-type" =>"mp3,wav","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
-      @signature = Digest::MD5.hexdigest(@policy+'&'+'kP34t27f602TN1hWsVomI0NxTXI=')
+      signature_generator
       render :new
     else
       @sceneid = Song.last.sceneid
@@ -106,4 +104,12 @@ class SongsController < ApplicationController
     return JSON.parse(res.body)['ticket']
   end
 
+  def signature_generator
+    @policy = Base64.encode64({:bucket => 'guanghe-file', :expiration => (Time.now().to_i + 3600), 'save-key' => "/sounds/{filemd5}{.suffix}","allow-file-type" =>"mp3,wav","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
+    @signature = Digest::MD5.hexdigest(@policy+'&'+'kP34t27f602TN1hWsVomI0NxTXI=')
+    @photo_policy = Base64.encode64({:bucket => 'guanghe-photo', :expiration => (Time.now().to_i + 3600), 'save-key' => "/card/{filemd5}{.suffix}","allow-file-type" =>"jpg,png,jpeg","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
+    @photo_signature = Digest::MD5.hexdigest(@policy+'&'+'pWyna2F/MDYvZ8lV4ETFX7tCXu8=')
+    @policy = Base64.encode64({:bucket => 'guanghe-photo', :expiration => (Time.now().to_i + 3600), 'save-key' => "/avatar/{filemd5}{.suffix}","allow-file-type" =>"jpg,png,jpeg","content-length-range" => "0,20480000"}.to_json).gsub("\n","")
+    @signature = Digest::MD5.hexdigest(@policy+'&'+'pWyna2F/MDYvZ8lV4ETFX7tCXu8=')
+  end
 end

@@ -15,12 +15,22 @@
 			</div>
 			<div class="col-md-9">
 				<div class="progress progress-striped active" style="height:34px">
-					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+					<div id="pb1" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 				</div>
 			</div>
 		</div>
-		<%= hidden_field_tag :upyun_policy, @policy %>
-		<%= hidden_field_tag :upyun_signature, @signature %>
+		<div class="row">
+			<div class="col-md-3">
+				<span id="upload_photo_button" class="btn btn-success fileinput-button" style="width:130px"> <i class="glyphicon glyphicon-plus"></i> <span id="upload_photo_label">点击卡片图片</span> <!-- The file input field used as target for the file upload widget -->
+					<input id="photoupload" type="file" name="file">
+				</span>
+			</div>
+			<div class="col-md-9">
+				<div class="progress progress-striped active" style="height:34px">
+					<div id="pb2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+				</div>
+			</div>
+		</div>		
 		<%= f.input :url ,:readonly => true%>
 		<%= f.input :description, :as => :text, :input_html => { :rows => "6" }, :placeholder => "讲一讲歌曲的故事"%>
 		<%= f.input :lyrics, :as => :text, :input_html => { :rows => "6" } %>
@@ -37,14 +47,13 @@
 	$(function() {'use strict';
 		// Change this to the location of your server-side upload handler:
 		var url = "http://v0.api.upyun.com/guanghe-file/";
-		var policy = $("#upyun_policy").val();
-		var signature = $("#upyun_signature").val();
+		var photo_url = "http://v0.api.upyun.com/guanghe-photo/";
 		$('#fileupload').fileupload({
 			url : url,
 			dataType : 'json',
 			formData : {
-				'policy' : policy,
-				'signature' : signature
+				'policy' : '<%= @policy %>',
+				'signature' : '<%= @signature %>'
 			},
 			method : 'post',
 			done : function(data) {
@@ -57,10 +66,36 @@
 			},
 			progressall : function(e, data) {
 				var progress = parseInt(data.loaded / data.total * 100, 10);
-				$('.progress .progress-bar').css('width', progress + '%');
+				$('#pb1').css('width', progress + '%');
 				$("#upload_label").text("上传中..");
 				$('#fileupload').attr('disabled', 'true');
 				$('#upload_button').attr('disabled', 'disabled');
+				$('[name="commit"]').attr('disabled', 'disabled');
+				$('[name="commit"]').val('上传文件中...');
+			}
+		});
+		$('#photoupload').fileupload({
+			url : photo_url,
+			dataType : 'json',
+			formData : {
+				'policy' : '<%= @photo_policy %>',
+				'signature' : '<%= @photo_signature %>'
+			},
+			method : 'post',
+			done : function(data) {
+				$("#upload_photo_label").text("上传完成");
+				$('[name="commit"]').removeAttr('disabled');
+				$('[name="commit"]').val('保存');
+			},
+			success : function(data) {
+				$("#song_url").val(data.url);
+			},
+			progressall : function(e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('#pb2').css('width', progress + '%');
+				$("#upload_photo_label").text("上传中..");
+				$('#photoupload').attr('disabled', 'true');
+				$('#upload_photo_button').attr('disabled', 'disabled');
 				$('[name="commit"]').attr('disabled', 'disabled');
 				$('[name="commit"]').val('上传文件中...');
 			}
