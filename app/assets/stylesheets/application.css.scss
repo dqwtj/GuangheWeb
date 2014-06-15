@@ -30,6 +30,11 @@ body {
   padding-top: 70px; 
 }
 */
+img.avatar {
+  max-width:120px;
+  max-height:120px;
+  min-height:120px;
+}
 
 .navbar .nav > li > a.btn.btn-info {
   @extend .btn;
