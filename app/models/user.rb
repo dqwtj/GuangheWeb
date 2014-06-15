@@ -10,6 +10,7 @@ class User
   field :recovery_duration
   field :fromUser
   field :info
+  field :last_active_time
   
   has_many :contributions
   has_many :floors
