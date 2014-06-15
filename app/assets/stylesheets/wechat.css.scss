@@ -167,3 +167,388 @@ div.song_description {
   font-size: 12px;
   color: #575757;
 }
+
+/* btn-outline style */
+.btn-outline {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #554c63;
+  color: #554c63;
+}
+
+.btn-outline:hover, .btn-outline:focus, .btn-outline:active {
+  background-color: #554c63;
+  border-color: #554c63;
+  color: #FFFFFF;
+}
+
+.btn-outline-inverse {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #9c88bc;
+  color: #FFFFFF;
+}
+
+.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #554c63;
+  text-shadow: none;
+}
+
+/* Main Intro Page Style*/
+
+.gh-intro-main {
+  margin-top: -20px;
+  background: image-url('gc-promo.jpg') no-repeat scroll center bottom;
+  min-height: 300px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  color: #FFF;
+  padding-top: 50px;
+  padding-bottom: 8%;
+}
+
+.gh-intro-main h1 {
+  margin-top: 15%;
+  margin-bottom: 30px;
+}
+
+.gh-intro-main .lead {
+  line-height: 1.5;
+}
+
+.gh-intro-feature {
+  border-bottom: 1px solid #E5E5E5;
+  color: #555555;
+  line-height: 1.5;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.gh-intro-feature img {
+  margin-bottom: 20px;
+}
+
+.gh-intro-feature .lead {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gh-intro-feature h3 {
+  margin-bottom: 20px;
+}
+
+.gh-intro-feature hr {
+  width: 100px;
+  margin: 40px auto;
+}
+
+.gh-intro-feature .feature-item:hover {
+  color: #554c63;
+}
+
+/* Myself Home Page Style */
+.gh-artist-main .btn-outline {
+  margin: 10px auto;
+}
+
+.gh-fb-main .btn-outline {
+  margin: 10px auto;
+}
+
+.gh-fb-main .lead {
+  font-size: 14px;
+}
+
+/* Admission Intro Page */
+
+.gh-admission-main {
+  margin-top: -20px;
+  background: image-url('gh-ad-promo.jpg') no-repeat scroll center top / cover rgba(0, 0, 0, 0);
+  height: 450px;
+  overflow: hidden;
+  text-align: center;
+  color: #171028;
+}
+
+.gh-admission-main h1 {
+  margin-top: 200px;
+  margin-bottom: 30px;
+}
+
+.gh-admission-main .lead {
+  line-height: 1.5;
+}
+
+.gh-admission-feature {
+  border-bottom: 1px solid #E5E5E5;
+  color: #555555;
+  line-height: 1.5;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.gh-admission-feature hr {
+  width: 300px;
+  margin: 40px auto;
+}
+
+.gh-admission-item {
+  text-align: left;
+}
+
+.gh-admission-item .gh-admission-title {
+  line-height: 1.75;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.gh-admission-item .gh-admission-subtitle {
+  text-align: center;
+  font-size: 18px;
+}
+
+.gh-timeline-container {
+  border-left: 3px solid #554c63;
+  margin: 20px auto;
+}
+
+.gh-timeline-major {
+  padding-left: 20px;
+  background: image-url("gh-timeline-tick.png") no-repeat scroll left center rgba(0, 0, 0, 0);
+}
+
+.gh-timeline-major .btn-outline {
+  border-width: 2px;
+}
+
+.gh-timeline-minor {
+  padding-left: 25px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.gh-service-item {
+  position: relative;
+  padding: 0 0;
+}
+
+.gh-service-item .gh-service-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #FFF;
+  width: 100%;
+  height: 100%;
+}
+
+.gh-service-item .gh-service-caption h3 {
+  margin-top: 33%;
+}
+
+.gh-service-item .gh-service-caption:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Recruit Intro Page */
+
+.gh-recruit-main {
+  text-align: center;
+  background-color: #554c63;
+  color: #FFF;
+  margin-top: -20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.gh-recruit-main.red {
+  background-color: #de7152;
+}
+
+.gh-recruit-main.blue {
+  background-color: #32525f;
+}
+
+.gh-recruit-main.green {
+  background-color: #6bbe52;
+}
+
+.gh-recruit-main.default {
+  background-color: #f1f0f2;
+  color: #171028;
+}
+
+.gh-recruit-main.default hr {
+  border-color: #171028;
+}
+
+.gh-recruit-main h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.gh-recruit-main h2 {
+  margin-bottom: 15px;
+}
+
+.gh-recruit-main h3 {
+  margin-bottom: 20px;
+}
+
+.gh-recruit-main .lead {
+  line-height: 1.5;
+}
+
+.gh-recruit-main hr {
+  width: 200px;
+}
+
+/* Song Index Page Style */
+.gh-songs-main .btn-outline {
+  margin: 10px auto;
+}
+
+.gh-songs-main .gh-song-panel {
+  text-align: center;
+  width: 270px;
+  height: 380px;
+  overflow: hidden; 
+}
+
+.gh-songs-main .thumbnail {
+  border: 2px solid #DDDDDD;
+  border-radius: 9px;
+}
+
+.gh-songs-main .thumbnail:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px rgba(168, 153, 233, 0.6);
+}
+
+.gh-songs-main .thumbnail.green {
+  border: 2px solid #b5ec88;
+}
+
+.gh-songs-main .thumbnail.green:hover {
+  border: 2px solid #89e141;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px #d2f4b4;
+}
+
+.gh-songs-main .thumbnail.blue {
+  border: 2px solid #91dee0;
+}
+
+.gh-songs-main .thumbnail.blue:hover {
+  border: 2px solid #4fcbce;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #bdebed;
+}
+
+.gh-songs-main .thumbnail.purple {
+  border: 2px solid #aaa5b1;
+}
+
+.gh-songs-main .thumbnail.purple:hover {
+  border: 2px solid #777082;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #ccc9d0;
+}
+
+.masonry {
+  margin: 0 auto;
+}
+
+.item {
+  width:  280px;
+  float: left;
+  padding: 5px;
+  height: 400px;
+  overflow: hidden; 
+}
+
+.gh-songs-main .progress-bar {
+  background-color: #554c63;
+}
+
+.gh-producer-main .panel-outline {
+  margin: 10px auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #554c63;
+  color: #554c63;
+}
+
+a.navbar-name-btn {
+  min-width: 134px;
+  text-align: left;
+}
+
+div.navbar-add-btn {
+  margin-right: 10px;
+}
+
+p.sign-up-info {
+  margin: 5px auto;
+  text-align: center;
+}
+
+a.guanghe-logo {
+  background-image: image-url('gc-logo.png');
+  background-size: cover;
+  height: 50px;
+  width: 109px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: block;
+  padding: 15px;
+  float: left;
+}
+
+a.myself-header-panel {
+  color: #FFF;
+  height: 150px;
+}
+
+a.myself-header-panel:hover {
+  text-decoration: none
+}
+
+p.myself-header-title {
+  font-size: 36px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p.myself-header-info {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p.song-info {
+  width:100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  height:40px;
+}
+
+/* Hack Bootstrap nav btn */
+.nav .open > a.btn-outline-inverse {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #554c63;
+  text-shadow: none;
+}
+
+@media only screen and (-webkit-device-pixel-ratio: 2){ 
+  a.guanghe-logo {
+    background-image: image-url('gc-logo@2x.png');
+  }
+}

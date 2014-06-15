@@ -1,0 +1,31 @@
+<div id="gh-recruit-step1">
+	<%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
+	<div class="gh-recruit-main">
+		<div class="container">
+			<h1>欢迎兑换廖国钺的歌曲</h1>
+			<p class="lead">
+				机遇·挑战
+			</p>
+			<hr />
+			<p class="lead">
+				作为信息时代的唱片公司
+				<br />
+				我们相信下一个音乐时代
+				<br />
+				每一个人都可以成为音乐的创造者
+			</p>
+			<p class="lead">
+				<%= f.input :code, :placeholder =>  "二维码输入", label:false%>
+
+			</p>
+		</div>
+	</div>
+	<div class="gh-recruit-main default">
+		<div class="container">
+			<div class="col-sm-4 col-sm-offset-4" style="margin-top: 10px; margin-bottom: 20px;">
+				<%= f.submit '确认提交', :class => "btn btn-outline btn-lg btn-block", :disable_with => '验证中' %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>

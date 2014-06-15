@@ -6,6 +6,8 @@ WechatFans::Application.routes.draw do
   get 'producer' => 'home#producer' 
   get 'billboard' => 'home#billboard'
   get 'recruit' => 'home#recruit'
+  get 'qrcode' => 'wechat#qrcode'
+  put 'qrcode' => 'wechat#qrcodev'
   get 'idols/profile' => 'idols#profile'
   put 'idols/profile' => 'idols#update'
   resources :applies
