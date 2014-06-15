@@ -45,6 +45,8 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     if @user.empty?
       @user = User.new(:fromUser => fromUser)
     end
+    @user.last_active_time = Time.now()
+    @user.save
     return @user
   end
 
