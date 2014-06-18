@@ -3,12 +3,9 @@ class WechatController < ApplicationController
   def qrcode
     @code = Code.new
     userid = params[:uid]
+    userid = "539d3a4cc205d4bdd2000002" if userid == nil
     session[:userid] = userid
-    puts userid
-    puts session[:userid]
-    puts "!!!"
     @user = User.where(:_id=>session[:userid]).first
-    puts @user
   end
   
   def qrcodev
@@ -23,6 +20,9 @@ class WechatController < ApplicationController
       else
         @message = "兑换成功"
         @tcode.is_used = true
+        @idol = Idol.where(:name => "吴含宇").first
+        @user.slots.create(:card => @idol.cards.last)
+        @user.save
         @tcode.save
       end
     end
