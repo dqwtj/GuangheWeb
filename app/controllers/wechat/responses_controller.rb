@@ -11,7 +11,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     @user = find_user(@action.fromUser)
     if @action.type == "event"
       if @action.event == "SCAN"
-        if @action.eventKey = "888"
+        if @action.eventKey != "888"
           @song = Song.where(:ticket => @action.ticket).last
           @song = Song.last if @song == nil
           render "qrcodeurl", :formats => :xml
