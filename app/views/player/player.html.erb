@@ -4,76 +4,24 @@
 			<div class="gallery" id="slides">
 				<a href="#" class="slidesjs-previous slidesjs-navigation"><div class="prev_button remove_button"></div></a>
 				<a href="#" class="slidesjs-next slidesjs-navigation"><div class="next_button remove_button"></div></a>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto" style="background: url(../assets/1.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
+				<% times = 4 / @user.slots.count + 1 %>
+				<% i = 0 %>
+				<% index = 0 %>
+				<% while (i < times) %>
+					<% i = i + 1 %>
+					<% @user.slots.each do |slot| %>
+						<div class="viewphoto">
+							<div class="card">
+								<div class="songphoto" style="background: image-url('<%= slot.card.song.cardpicurl %>') 0px 0px no-repeat">
+									<div class="fasade"></div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/2.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/3.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/4.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/5.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/6.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/7.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/8.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/9.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
-				<div class="viewphoto">
-					<div class="card">
-						<div class="songphoto"  style="background: url(../assets/10.png) 0px 0px no-repeat">
-							<div class="fasade"></div>
-						</div>
-					</div>
-				</div>
+						<div style="display:none" id="title-<%= index%>"><%=slot.card.song.title %></div>
+						<div style="display:none" id="description-<%= index%>"><%=slot.card.song.description %></div>
+						<% index = index + 1 %>
+					<% end %>
+				<% end %>
 			</div>
 			<div id="slidesjs-log" class="page-number remove_button">
 				<span class="slidesjs-slide-number">1</span>/<span class="slidesjs-total-number">1</span>
@@ -83,10 +31,10 @@
 
 				<a href="#"><div class="play2_button remove_button"></div></a>
 				<div class="desc_panel remove_button">
-					<div class="title">
+					<div id="title" class="title">
 						廖国钺·流浪
 					</div>
-					<span>2014年最新创作单曲。集合了诸多音乐新生力量。</span>
+					<span id="description">2014年最新创作单曲。集合了诸多音乐新生力量。</span>
 				</div>
 			</div>
 		</div>
@@ -109,7 +57,8 @@
 <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
 <script>
 	$(document).ready(function() {
-		$("span.slidesjs-total-number").text($('#slides').children().length - 2);
+		var count = <%= @user.slots.count %>;
+		$("span.slidesjs-total-number").text(count);
 		$('#slides').slidesjs({
 			width : 640,
 			height : 700,
@@ -119,7 +68,7 @@
 					console.log('SlidesJS: Loaded with slide #' + number);
 
 					// Show start slide in log
-					$('#slidesjs-log .slidesjs-slide-number').text(number);
+					$('#slidesjs-log .slidesjs-slide-number').text(number % count);
 				},
 				start : function(number) {
 					// Use your browser console to view log
@@ -129,6 +78,8 @@
 				},
 				complete : function(number) {
 					// Use your browser console to view log
+					$("#title").text($("#title-" + number).text());
+					$("#description").text($("#description-" + number).text());
 					$(".play2_button").fadeIn(500);
 					$(".desc_panel").fadeIn(500);
 					console.log('SlidesJS: Animation Complete. Current slide is #' + number);
