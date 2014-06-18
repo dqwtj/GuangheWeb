@@ -5,7 +5,10 @@ class WechatController < ApplicationController
     userid = params[:uid]
     session[:userid] = userid
     puts userid
+    puts session[:userid]
+    puts "!!!"
     @user = User.where(:_id=>session[:userid]).first
+    puts @user
   end
   
   def qrcodev
