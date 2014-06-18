@@ -5,6 +5,11 @@
 			<p class="lead">
 				<%= @message %>
 			</p>
+			<% if @url != nil%>
+				<p class="lead">
+					<a href="<%=@url%>">点击进入播放器</a>
+				</p>
+			<% end %>
 		</div>
 	</div>
 </div>

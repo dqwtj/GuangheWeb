@@ -1,0 +1,166 @@
+<div class="content">
+	<div class="inner">
+		<div class="background-gray">
+			<div class="gallery" id="slides">
+				<a href="#" class="slidesjs-previous slidesjs-navigation"><div class="prev_button remove_button"></div></a>
+				<a href="#" class="slidesjs-next slidesjs-navigation"><div class="next_button remove_button"></div></a>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto" style="background: url(../assets/1.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/2.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/3.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/4.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/5.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/6.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/7.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/8.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/9.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto"  style="background: url(../assets/10.png) 0px 0px no-repeat">
+							<div class="fasade"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="slidesjs-log" class="page-number remove_button">
+				<span class="slidesjs-slide-number">1</span>/<span class="slidesjs-total-number">1</span>
+			</div>
+			<div class="border remove_button"></div>
+			<div class="control_panel">
+
+				<a href="#"><div class="play2_button remove_button"></div></a>
+				<div class="desc_panel remove_button">
+					<div class="title">
+						廖国钺·流浪
+					</div>
+					<span>2014年最新创作单曲。集合了诸多音乐新生力量。</span>
+				</div>
+			</div>
+		</div>
+		<div class="player" style="display:none">
+			<div class="background" >
+				<div class="screen"></div>
+				<div class="play_button"></div>
+				<div class="pause_button"></div>
+				<div class="eject_button"></div>
+			</div>
+			<div class="load_panel">
+				<div class="load_panel_up"></div>
+				<div class="load_panel_down"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End SlidesJS Required: Start Slides -->
+
+<!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+<script>
+	$(document).ready(function() {
+		$("span.slidesjs-total-number").text($('#slides').children().length - 2);
+		$('#slides').slidesjs({
+			width : 640,
+			height : 700,
+			callback : {
+				loaded : function(number) {
+					// Use your browser console to view log
+					console.log('SlidesJS: Loaded with slide #' + number);
+
+					// Show start slide in log
+					$('#slidesjs-log .slidesjs-slide-number').text(number);
+				},
+				start : function(number) {
+					// Use your browser console to view log
+					$(".play2_button").fadeOut(0);
+					$(".desc_panel").fadeOut(0);
+					console.log('SlidesJS: Start Animation on slide #' + number);
+				},
+				complete : function(number) {
+					// Use your browser console to view log
+					$(".play2_button").fadeIn(500);
+					$(".desc_panel").fadeIn(500);
+					console.log('SlidesJS: Animation Complete. Current slide is #' + number);
+
+					// Change slide number on animation complete
+					$('#slidesjs-log .slidesjs-slide-number').text(number);
+				}
+			}
+		});
+		$("div.play2_button").click(function() {
+			$("div.remove_button").fadeOut(500);
+			$("div.player").css({
+				top : "-900px"
+			});
+			$("div.player").show();
+			$("div.player").animate({
+				top : "0px"
+			}, 2000);
+		});
+
+		$("div.eject_button").click(function() {
+			$("div.player").css({
+				top : "0px"
+			});
+			$("div.player").show();
+			$("div.player").animate({
+				top : "-900px"
+			}, 2000, function() {
+				$("div.player").hide();
+				$("div.remove_button").fadeIn(500);
+			});
+		});
+	}); 
+</script>
+<!-- End SlidesJS Required -->

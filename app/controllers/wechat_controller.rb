@@ -24,7 +24,12 @@ class WechatController < ApplicationController
         @user.slots.create(:card => @idol.cards.last)
         @user.save
         @tcode.save
+        @url = "player.html"
       end
     end
+  end
+  
+  def player
+    @user = User.where(:_id=>session[:userid]).first
   end
 end

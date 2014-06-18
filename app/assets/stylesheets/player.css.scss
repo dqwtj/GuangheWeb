@@ -1,4 +1,245 @@
-h3.player-block {
+@charset "utf-8";
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;//
+  overflow: hidden;
+  background: #E7E7E7;
+  font-family: '黑体', Helvetica, Calibri, Arial, sans-serif;
+}
+
+div, a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  margin: 0px;
+  padding: 0px;
+}
+
+span {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.wrapper {
+  width: 100%;
+  height: 14px;
+}
+
+div.content {
   text-align: center;
-  margin: 10px auto;
+  width: 100%;
+}
+
+div.inner {
+  width: 640px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+div.player {
+  position: absolute;
+  top:0px;
+}
+
+div.background {
+  width: 640px;
+  height: 832px;
+  background: image-url('background.png') 0px 0px no-repeat;
+  position: absolute;
+}
+
+div.background-gray {
+  width: 640px;
+  height: 832px;
+  background: image-url('background-gray.png') 0px 0px no-repeat;
+  position: absolute;
+  top: 0px;
+}
+
+div.screen {
+  height: 754px;
+  width: 332px;
+  background: image-url('screen.png') 0px 0px no-repeat;
+  position: absolute;
+  top: 78px;
+  left: 155px;
+  z-index:100;
+}
+
+div.play_button {
+  position: absolute;
+  height: 100px;
+  width: 86px;
+  bottom: 39px;
+  right: 66px;
+  background: image-url('play.png') 0px 0px no-repeat;
+}
+
+div.play_button:hover {
+  background: image-url('play_press.png') 0px 0px no-repeat;
+}
+
+div.pause_button {
+  position: absolute;
+  height: 100px;
+  width: 86px;
+  bottom: 39px;
+  left: 67px;
+  background: image-url('pause.png') 0px 0px no-repeat;
+}
+
+div.pause_button:hover {
+  background: image-url('pause_press.png') 0px 0px no-repeat;
+}
+
+div.eject_button {
+  position: absolute;
+  right: 65px;
+  top: 275px;
+  height: 102px;
+  width: 44px;
+  background: image-url('eject.png') 0px 0px no-repeat;
+}
+
+div.eject_button:hover {
+  background: image-url('eject_press.png') 0px 0px no-repeat;
+}
+
+div.load_panel {
+  position: absolute;
+  top: 832px;
+}
+
+div.load_panel_up {
+  width: 640px;
+  height: 12px;
+  position: absolute;
+  z-index:11;
+  background: image-url('load_panel_up.png') 0px 0px no-repeat;
+}
+
+div.load_panel_down {
+  width: 640px;
+  height: 22px;
+  top:12px;
+  position: absolute;
+  background: image-url('load_panel_down.png') 0px 0px no-repeat;
+}
+
+/* Prevent the slideshow from flashing on load */
+#slides {
+  display: none
+}
+
+div.viewphoto {
+  width: 100%;
+  position:absoulte;
+}
+
+div.songphoto {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: 450px;
+  background: image-url('photo.png') 0px 0px no-repeat;
+}
+
+div.songphoto2 {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: 450px;
+  background: image-url('photo2.png') 0px 0px no-repeat;
+}
+
+div.gallery {
+  width: 100%;
+  position: absolute;
+}
+
+div.page-number {
+  font-size: 28px;
+  color: white;
+  position: absolute;
+  width: 100%;
+  top: 25px;
+}
+
+div.prev_button {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -7px;
+  left: 169px;
+  background: image-url('prev.png') 40px 25px no-repeat;
+  z-index:11;
+}
+
+div.next_button {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -7px;
+  right: 169px;
+  background: image-url('next.png') 50px 25px no-repeat;
+  z-index:11;
+}
+
+div.border {
+  position: absolute;
+  width: 98px;
+  height: 50px;
+  top: 16px;
+  left: 273px;
+  background: image-url('border.png') 0px 0px no-repeat;
+}
+
+div.card {
+  position: absolute;
+  width: 310px;
+  height: 526px;
+  top: 89px;
+  left: 165px;
+  background: image-url('card.png') 0px 0px no-repeat;
+}
+
+div.fasade {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width: 300px;
+  height: 450px;
+  background: image-url('fasade.png') 0px 0px no-repeat;
+}
+
+div.play2_button {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  top: 430px;
+  left: 279px;
+  z-index:100;
+  background: image-url('play2.png') 0px 0px no-repeat;
+}
+
+div.desc_panel {
+  width: 260px;
+  height: 200px;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  bottom: -30px;
+  left: 183px;
+  text-align:left;
+}
+
+div.title {
+  text-align:left;
+  width: 100%;
+  font-size: 24px;
+  height:36px;
+  
 }

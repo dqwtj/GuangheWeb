@@ -3,22 +3,13 @@
 <head>
   <title><%= content_for?(:title) ? yield(:title) : "光合音乐" %></title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "player", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "player", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-	<div class="container">
-    	<h3 class="player-block">
-    		<span class="glyphicon glyphicon-play"></span>
-    		<span>光合音乐</span>
-    	</h3>
-	</div>
-</nav>
 <%= yield %>
-<%= yield :scripts %>
 </body>
 </html>
