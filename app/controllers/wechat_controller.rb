@@ -4,6 +4,7 @@ class WechatController < ApplicationController
     @code = Code.new
     userid = params[:uid]
     session[:userid] = userid
+    puts userid
     @user = User.where(:_id=>session[:userid]).first
   end
   
