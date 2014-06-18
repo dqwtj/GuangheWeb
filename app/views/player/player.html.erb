@@ -8,19 +8,24 @@
 				<% i = 0 %>
 				<% index = 0 %>
 				<% while (i < times) %>
-					<% i = i + 1 %>
-					<% @user.slots.each do |slot| %>
-						<div class="viewphoto">
-							<div class="card">
-								<div class="songphoto" style="background: image-url('<%= slot.card.song.cardpicurl %>') 0px 0px no-repeat">
-									<div class="fasade"></div>
-								</div>
-							</div>
+				<% i = i + 1 %>
+				<% @user.slots.each do |slot| %>
+				<% index = index + 1 %>
+				<div class="viewphoto">
+					<div class="card">
+						<div class="songphoto" style="background: image-url('<%= slot.card.song.cardpicurl %>') 0px 0px no-repeat">
+							<div class="fasade"></div>
 						</div>
-						<div style="display:none" id="title-<%= index%>"><%=slot.card.song.title %></div>
-						<div style="display:none" id="description-<%= index%>"><%=slot.card.song.description %></div>
-						<% index = index + 1 %>
-					<% end %>
+					</div>
+					<div style="display:none" id="title-<%= index%>">
+						<%= slot.card.song.name %>
+					</div>
+					<div style="display:none" id="description-<%= index%>">
+						<%= slot.card.song.description %>
+					</div>
+				</div>
+				
+				<% end %>
 				<% end %>
 			</div>
 			<div id="slidesjs-log" class="page-number remove_button">
@@ -57,61 +62,64 @@
 <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
 <script>
 	$(document).ready(function() {
-		var count = <%= @user.slots.count %>;
-		$("span.slidesjs-total-number").text(count);
-		$('#slides').slidesjs({
-			width : 640,
-			height : 700,
-			callback : {
-				loaded : function(number) {
-					// Use your browser console to view log
-					console.log('SlidesJS: Loaded with slide #' + number);
+	var count = <%= @user.slots.count %>;
+	$("span.slidesjs-total-number").text(count);
+	$('#slides').slidesjs({
+		width : 640,
+		height : 700,
+		callback : {
+			loaded : function(number) {
+				// Use your browser console to view log
+				console.log('SlidesJS: Loaded with slide #' + number);
 
-					// Show start slide in log
-					$('#slidesjs-log .slidesjs-slide-number').text(number % count);
-				},
-				start : function(number) {
-					// Use your browser console to view log
-					$(".play2_button").fadeOut(0);
-					$(".desc_panel").fadeOut(0);
-					console.log('SlidesJS: Start Animation on slide #' + number);
-				},
-				complete : function(number) {
-					// Use your browser console to view log
-					$("#title").text($("#title-" + number).text());
-					$("#description").text($("#description-" + number).text());
-					$(".play2_button").fadeIn(500);
-					$(".desc_panel").fadeIn(500);
-					console.log('SlidesJS: Animation Complete. Current slide is #' + number);
+				// Show start slide in log
+				$("#title").text($("#title-" + number).text());
+				$("#description").text($("#description-" + number).text());
+				$('#slidesjs-log .slidesjs-slide-number').text(number % count + 1);
+			},
+			start : function(number) {
+				// Use your browser console to view log
+				$(".play2_button").fadeOut(0);
+				$(".desc_panel").fadeOut(0);
+				console.log('SlidesJS: Start Animation on slide #' + number);
+			},
+			complete : function(number) {
+				// Use your browser console to view log
+				
+				$(".play2_button").fadeIn(500);
+				$(".desc_panel").fadeIn(500);
+				console.log('SlidesJS: Animation Complete. Current slide is #' + number);
 
-					// Change slide number on animation complete
-					$('#slidesjs-log .slidesjs-slide-number').text(number);
-				}
+				// Change slide number on animation complete
+				$("#title").text($("#title-" + number).text());
+				$("#description").text($("#description-" + number).text());
+				$('#slidesjs-log .slidesjs-slide-number').text(number % count + 1);
 			}
+		}
+	});
+	$("div.play2_button").click(function() {
+		$("div.remove_button").fadeOut(500);
+		$("div.player").css({
+			top : "-900px"
 		});
-		$("div.play2_button").click(function() {
-			$("div.remove_button").fadeOut(500);
-			$("div.player").css({
-				top : "-900px"
-			});
-			$("div.player").show();
-			$("div.player").animate({
-				top : "0px"
-			}, 2000);
-		});
+		$("div.player").show();
+		$("div.player").animate({
+			top : "0px"
+		}, 2000);
+	});
 
-		$("div.eject_button").click(function() {
-			$("div.player").css({
-				top : "0px"
-			});
-			$("div.player").show();
-			$("div.player").animate({
-				top : "-900px"
-			}, 2000, function() {
-				$("div.player").hide();
-				$("div.remove_button").fadeIn(500);
-			});
+	$("div.eject_button").click(function() {
+		$("div.player").css({
+			top : "0px"
 		});
-	}); 
+		$("div.player").show();
+		$("div.player").animate({
+			top : "-900px"
+		}, 2000, function() {
+			$("div.player").hide();
+			$("div.remove_button").fadeIn(500);
+		});
+	});
+	});
 </script>
 <!-- End SlidesJS Required -->
