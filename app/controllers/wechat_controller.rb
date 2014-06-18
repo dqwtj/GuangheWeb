@@ -5,7 +5,7 @@ class WechatController < ApplicationController
   end
   
   def qrcodev
-    @code = params[:code]['code']
+    @code = params[:code]['code'].upcase
     @message = "兑换失败，无此兑换码!"
     @target = Code.where(:code => @code)
     if @target.count > 0
