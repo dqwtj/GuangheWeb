@@ -2,7 +2,7 @@ import pymongo
 import datetime
 
 connection = pymongo.Connection('42.120.11.41',27017)
-db = connection.wechat_fans
+db = connection.wechat_fans_development
 codes = db.codes
 
 fp = open("code10000-10.txt","r")
