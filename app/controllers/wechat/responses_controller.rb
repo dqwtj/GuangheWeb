@@ -11,10 +11,13 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     @user = find_user(@action.fromUser)
     if @action.type == "event"
       if @action.event == "SCAN"
-        @song = Song.where(:ticket => @action.ticket).last
-        @song = Song.last if @song == nil
-	puts @song.mp3_url
-        render "qrcodeurl", :formats => :xml
+        if @action.ticket = "888"
+          @song = Song.where(:ticket => @action.ticket).last
+          @song = Song.last if @song == nil
+          render "qrcodeurl", :formats => :xml
+        else
+          render "qrcodeverify", :formats => :xml
+        end
       end
     else
       render "echo", :formats => :xml
@@ -39,7 +42,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     @wechatlog.save
     return @wechatlog
   end
-  
+
   def find_user(fromUser)
     @user = User.where(:fromUser => fromUser).first
     if @user == nil
@@ -57,7 +60,7 @@ class Wechat::ResponsesController < Wechat::ApplicationController
     array = [Rails.configuration.wechat_token, params[:timestamp], params[:nonce]].sort
     render :text => "Forbidden", :status => 403 if params[:signature] != Digest::SHA1.hexdigest(array.join)
   end
-  
+
   def get_https_response(uri)
     @uri = URI.parse(uri)
     http = Net::HTTP.new(@uri.host, @uri.port)
