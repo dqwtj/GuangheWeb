@@ -2,9 +2,7 @@ class WechatController < ApplicationController
   
   def qrcode
     @code = Code.new
-    uri = URI.parse(@object.location)
-    uri_params = CGI.parse(uri.query)
-    userid = uri_params['uid']
+    userid = params[:uid]
     session[:userid] = userid
     @user = User.where(:_id=>session[:userid]).first
   end
