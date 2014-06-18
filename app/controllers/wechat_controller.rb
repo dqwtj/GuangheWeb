@@ -2,10 +2,12 @@ class WechatController < ApplicationController
   
   def qrcode
     @code = Code.new
+    @user = User.where(:_id=>session[:userid]).first
   end
   
   def qrcodev
     @code = params[:code]['code'].upcase
+    @user = User.where(:_id=>session[:userid]).first
     @message = "兑换失败，无此兑换码!"
     @target = Code.where(:code => @code)
     if @target.count > 0

@@ -2,7 +2,7 @@
 	<%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
 	<div class="gh-recruit-main">
 		<div class="container">
-			<h1>欢迎兑换廖国钺的歌曲</h1>
+			<h1><%= @user.info.nickname %>，欢迎兑换廖国钺的歌曲</h1>
 			<p class="lead">
 				输入不区分大小写
 			</p>
@@ -16,7 +16,6 @@
 			</p>
 			<p class="lead">
 				<%= f.input :code, :placeholder =>  "二维码输入", label:false%>
-
 			</p>
 		</div>
 	</div>
