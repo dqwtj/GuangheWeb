@@ -20,5 +20,4 @@
 //= require jquery.fileupload
 //= require masonry.pkgd.min
 //= require jquery.countdown.min
-//= require jquery.slides.min
 
