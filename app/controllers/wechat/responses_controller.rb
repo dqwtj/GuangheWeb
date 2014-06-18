@@ -9,7 +9,6 @@ class Wechat::ResponsesController < Wechat::ApplicationController
   def create
     @action = recordlog
     @user = find_user(@action.fromUser)
-    session[:userid] = @user._id
     if @action.type == "event"
       if @action.event == "SCAN"
         if @action.eventKey != "888"
