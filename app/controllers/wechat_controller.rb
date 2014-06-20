@@ -5,12 +5,12 @@ class WechatController < ApplicationController
     userid = params[:uid]
     userid = "539d3a4cc205d4bdd2000002" if userid == nil
     session[:userid] = userid
-    @user = User.where(:_id=>session[:userid]).first
+    @user = User.find(session[:userid])
   end
   
   def qrcodev
     @code = params[:code]['code'].upcase
-    @user = User.where(:_id=>session[:userid]).first
+    @user = User.find(session[:userid])
     @message = "兑换失败，无此兑换码!"
     @target = Code.where(:code => @code)
     if @target.count > 0
@@ -35,7 +35,7 @@ class WechatController < ApplicationController
   end
   
   def player
-    @user = User.where(:_id=>session[:userid]).first
+    @user = User.find(session[:userid])
   end
   
   def getSongId(code)

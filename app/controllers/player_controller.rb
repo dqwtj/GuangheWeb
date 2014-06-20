@@ -1,5 +1,5 @@
 class PlayerController < ApplicationController
   def player
-    @user = User.where(:_id=>session[:userid]).first
+    @user = User.find(session[:userid])
   end
 end
