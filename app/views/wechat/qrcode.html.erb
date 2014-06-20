@@ -19,7 +19,7 @@
 	hr {
 		border-top: 1px solid #aaaaaa;
 		margin-top: 0px;
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 	}
 </style>
 <%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 	<% if @user.slots.count > 0 %>
-	<div class="row" style="margin-top:15px">
+	<div class="row" style="margin-top:10px">
 		<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
 			<a href="player.html"><span style="font-size:12px;">我已拥有歌曲卡片，直接进入播放器</span></a>
 		</div>
