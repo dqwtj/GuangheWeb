@@ -1,15 +1,55 @@
-<div id="gh-recruit-step1">
-	<div class="gh-recruit-main">
-		<div class="container">
-			<h1>Code：<%= @code %></h1>
-			<p class="lead">
-				<%= @message %>
-			</p>
-			<% if @url != nil%>
-				<p class="lead">
-					<a href="<%=@url%>">点击进入播放器</a>
-				</p>
-			<% end %>
+<style>
+	.btn-outline {
+		background-color: #ff7e00;
+		border-color: #ffffff;
+		color: #ffffff;
+	}
+
+	.btn-outline:active {
+		background-color: #ffffff;
+		border-color: #ff7e00;
+		color: #ff7e00;
+	}
+	.btn-outline:hover {
+		background-color: #ffffff;
+		border-color: #ff7e00;
+		color: #ff7e00;
+	}
+
+	hr {
+		border-top: 1px solid #aaaaaa;
+		margin-top: 0px;
+		margin-bottom: 15px;
+	}
+</style>
+<%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
+<div class="row">
+	<div class="col-md-12" style="text-align:center">
+		<div style="height:136px;width:100%;text-align:center;overflow:hidden">
+			<div class="qrcode_top"></div>
 		</div>
 	</div>
 </div>
+<div class="row" style="margin-top:20px">
+	<p style="text-align:center">
+		<%= @message%>
+	</p>
+</div>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+		<%= f.input :code, :placeholder =>  "输入兑换号收听歌曲", label:false%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+		<%= f.submit '确认提交', :class => "btn btn-outline btn-lg btn-block", :disable_with => '验证中' %>
+	</div>
+</div>
+<% if @user.slots.count > 0 %>
+<div class="row" style="margin-top:10px">
+	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+		<a href="player.html"><span style="font-size:12px;">我已拥有歌曲卡片，直接进入播放器</span></a>
+	</div>
+</div>
+<% end %>
+<% end %>
