@@ -74,7 +74,7 @@ div.play_button {
   background: image-url('play.png') 0px 0px no-repeat;
 }
 
-div.play_button:hover {
+div.play_button_active {
   background: image-url('play_press.png') 0px 0px no-repeat;
 }
 
@@ -87,7 +87,7 @@ div.pause_button {
   background: image-url('pause.png') 0px 0px no-repeat;
 }
 
-div.pause_button:hover {
+div.pause_button_active {
   background: image-url('pause_press.png') 0px 0px no-repeat;
 }
 

@@ -22,6 +22,7 @@ class WechatController < ApplicationController
         @card = Song.find(songid).cards.last
         if (@user.slots.where(:card => @card).first != nil)
           @message = "您已经拥有这首歌了，不能继续兑换"
+          @url = "player.html"
         else
           @message = "兑换成功"
           @tcode.is_used = true 

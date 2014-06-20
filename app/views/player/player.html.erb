@@ -23,8 +23,11 @@
 					<div style="display:none" id="description-<%= index%>">
 						<%= slot.card.song.description %>
 					</div>
+					<div style="display:none" id="mp3-<%= index%>" class="mp3url">
+						<%= slot.card.song.mp3_url %>
+					</div>
 				</div>
-				
+
 				<% end %>
 				<% end %>
 			</div>
@@ -34,7 +37,7 @@
 			<div class="border remove_button"></div>
 			<div class="control_panel">
 
-				<a href="#"><div class="play2_button remove_button"></div></a>
+				<div class="play2_button remove_button"></div>
 				<div class="desc_panel remove_button">
 					<div id="title" class="title">
 						廖国钺·流浪
@@ -61,23 +64,39 @@
 
 <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
 <script>
-	$(document).ready(function() {
-	var count = <%= @user.slots.count %>;
+	var current;
+$(document).ready(function() {
+var count = <%= @user.slots.count %>
+	;
 	$("span.slidesjs-total-number").text(count);
+	soundManager.setup({
+		// required: path to directory containing SM2 SWF files
+		url : './',
+		onready : function() {
+			$("div.mp3url").each(function(index) {
+				soundManager.createSound({
+					id : $(this).attr('id'),
+					url : $(this).text()
+				});
+			});
+		},
+	});
 	$('#slides').slidesjs({
 		width : 640,
 		height : 700,
 		callback : {
 			loaded : function(number) {
+				current = number;
 				// Use your browser console to view log
 				console.log('SlidesJS: Loaded with slide #' + number);
 
 				// Show start slide in log
 				$("#title").text($("#title-" + number).text());
 				$("#description").text($("#description-" + number).text());
-				$('#slidesjs-log .slidesjs-slide-number').text(number % count + 1);
+				$('#slidesjs-log .slidesjs-slide-number').text(number % count);
 			},
 			start : function(number) {
+				current = number;
 				// Use your browser console to view log
 				$(".play2_button").fadeOut(0);
 				$(".desc_panel").fadeOut(0);
@@ -85,7 +104,7 @@
 			},
 			complete : function(number) {
 				// Use your browser console to view log
-				
+				current = number;
 				$(".play2_button").fadeIn(500);
 				$(".desc_panel").fadeIn(500);
 				console.log('SlidesJS: Animation Complete. Current slide is #' + number);
@@ -93,7 +112,7 @@
 				// Change slide number on animation complete
 				$("#title").text($("#title-" + number).text());
 				$("#description").text($("#description-" + number).text());
-				$('#slidesjs-log .slidesjs-slide-number').text(number % count + 1);
+				$('#slidesjs-log .slidesjs-slide-number').text(number % count);
 			}
 		}
 	});
@@ -105,10 +124,16 @@
 		$("div.player").show();
 		$("div.player").animate({
 			top : "0px"
-		}, 2000);
+		}, 2000, function() {
+			soundManager.play($("#mp3-" + current).attr("id"));
+		$("div.play_button").toggleClass("play_button_active",true);
+		});
 	});
 
 	$("div.eject_button").click(function() {
+		$("div.play_button").toggleClass("play_button_active",false);
+		$("div.pause_button").toggleClass("pause_button_active",false);
+		soundManager.stop($("#mp3-" + current).attr("id"));
 		$("div.player").css({
 			top : "0px"
 		});
@@ -121,5 +146,15 @@
 		});
 	});
 	});
+	$("div.play_button").click(function() {
+		soundManager.resumeAll();
+		$("div.play_button").toggleClass("play_button_active",true);
+		$("div.pause_button").toggleClass("pause_button_active",false);
+	});
+	$("div.pause_button").click(function() {
+		soundManager.pauseAll();
+		$("div.play_button").toggleClass("play_button_active",false);
+		$("div.pause_button").toggleClass("pause_button_active",true);
+	}); 
 </script>
 <!-- End SlidesJS Required -->
