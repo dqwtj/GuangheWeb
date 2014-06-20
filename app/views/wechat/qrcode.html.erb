@@ -1,30 +1,54 @@
-<div id="gh-recruit-step1">
-	<%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
-	<div class="gh-recruit-main">
-		<div class="container">
-			<h1><%= @user.info['nickname'] %>，欢迎兑换廖国钺的歌曲</h1>
-			<p class="lead">
-				输入不区分大小写
-			</p>
-			<hr />
-			<p class="lead">
-				说明文字
-				<br />
-				我们相信下一个音乐时代
-				<br />
-				每一个人都可以成为音乐的创造者
-			</p>
-			<p class="lead">
-				<%= f.input :code, :placeholder =>  "二维码输入", label:false%>
-			</p>
-		</div>
+<style>
+	.btn-outline {
+		background-color: #000000;
+		border-color: #ffffff;
+		color: #ffffff;
+	}
+
+	.btn-outline:active {
+		background-color: #ffffff;
+		border-color: #000000;
+		color: #000000;
+	}
+	.btn-outline:hover {
+		background-color: #ffffff;
+		border-color: #000000;
+		color: #000000;
+	}
+	
+	hr {
+		border-top: 1px solid #aaaaaa;
+	}
+</style>
+<%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
+<div class="row">
+	<div class="col-md-12" style="text-align:center">
+		<div class="qrcode_top"></div>
 	</div>
-	<div class="gh-recruit-main default">
-		<div class="container">
-			<div class="col-sm-4 col-sm-offset-4" style="margin-top: 10px; margin-bottom: 20px;">
-				<%= f.submit '确认提交', :class => "btn btn-outline btn-lg btn-block", :disable_with => '验证中' %>
-			</div>
-		</div>
+	<div class="col-md-12" style="text-align:center">
+		<div class="qrcode_middle"></div>
 	</div>
-	<% end %>
 </div>
+<div class="row">
+	<div class="col-xs-10 col-xs-offset-1"style="text-align:center">
+		<hr>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+		<%= f.input :code, :placeholder =>  "输入兑换号收听歌曲", label:false%>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+		<%= f.submit '确认提交', :class => "btn btn-outline btn-lg btn-block", :disable_with => '验证中' %>
+	</div>
+</div>
+<% if @user.slots.count > 0 %>
+<div class="row" style="margin-top:20px">
+	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+		<a href="player.html"><span style="font-size:12px;">我已拥有歌曲卡片，直接进入播放器</span></a>
+	</div>
+</div>
+<% end %>
+<% end %>

@@ -1,11 +1,10 @@
 @charset "utf-8";
-
+@import "bootstrap";
 html,body {
   width: 100%;
   margin: 0;
   padding: 0; //
   overflow: hidden;
-  background: #E7E7E7;
   font-family: '黑体', Helvetica, Calibri, Arial, sans-serif;
 }
 
@@ -553,4 +552,17 @@ p.song-info {
   }
 }
 
+.qrcode_top{
+  height: 136px;
+  width:100%;
+  background: image-url('card_02.png') 50% 50% no-repeat;
+  background-size:contain;
+}
+
+.qrcode_middle{
+  height: 133px;
+  width:100%;
+  background: image-url('card_05.png') 50% 50% no-repeat;
+  background-size:contain;
+}
 
