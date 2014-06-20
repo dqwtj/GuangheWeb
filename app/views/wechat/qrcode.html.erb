@@ -18,38 +18,40 @@
 
 	hr {
 		border-top: 1px solid #aaaaaa;
+		margin-top: 0px;
+		margin-bottom: 20px;
 	}
 </style>
 <%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
 <div class="row">
 	<div class="col-md-12" style="text-align:center">
 		<div style="height:136px;width:100%;text-align:center;overflow:hidden">
-		<div class="qrcode_top"></div>
+			<div class="qrcode_top"></div>
+		</div>
+		<div class="col-md-12" style="text-align:center">
+			<div class="qrcode_middle"></div>
+		</div>
 	</div>
-	<div class="col-md-12" style="text-align:center">
-		<div class="qrcode_middle"></div>
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1"style="text-align:center">
+			<hr>
+		</div>
 	</div>
-</div>
-<div class="row">
-	<div class="col-xs-10 col-xs-offset-1"style="text-align:center">
-		<hr>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+			<%= f.input :code, :placeholder =>  "输入兑换号收听歌曲", label:false%>
+		</div>
 	</div>
-</div>
-<div class="row">
-	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
-		<%= f.input :code, :placeholder =>  "输入兑换号收听歌曲", label:false%>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+			<%= f.submit '确认提交', :class => "btn btn-outline btn-lg btn-block", :disable_with => '验证中' %>
+		</div>
 	</div>
-</div>
-<div class="row">
-	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
-		<%= f.submit '确认提交', :class => "btn btn-outline btn-lg btn-block", :disable_with => '验证中' %>
+	<% if @user.slots.count > 0 %>
+	<div class="row" style="margin-top:15px">
+		<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
+			<a href="player.html"><span style="font-size:12px;">我已拥有歌曲卡片，直接进入播放器</span></a>
+		</div>
 	</div>
-</div>
-<% if @user.slots.count > 0 %>
-<div class="row" style="margin-top:20px">
-	<div class="col-xs-8 col-xs-offset-2"style="text-align:center">
-		<a href="player.html"><span style="font-size:12px;">我已拥有歌曲卡片，直接进入播放器</span></a>
-	</div>
-</div>
-<% end %>
-<% end %>
+	<% end %>
+	<% end %>
