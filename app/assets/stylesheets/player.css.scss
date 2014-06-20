@@ -3,7 +3,7 @@
 html, body {
   width: 100%;
   margin: 0;
-  padding: 0;//
+  padding: 0;
   overflow: hidden;
   background: #E7E7E7;
   font-family: '黑体', Helvetica, Calibri, Arial, sans-serif;
@@ -30,7 +30,7 @@ div.content {
 }
 
 div.inner {
-  width: 640px;
+  width: 320px;
   display: inline-block;
   overflow: hidden;
 }
@@ -41,88 +41,98 @@ div.player {
 }
 
 div.background {
-  width: 640px;
-  height: 832px;
+  width: 320px;
+  height: 416px;
   background: image-url('background.png') 0px 0px no-repeat;
   position: absolute;
+  background-size: contain;
 }
 
 div.background-gray {
-  width: 640px;
-  height: 832px;
+  width: 320px;
+  height: 416px;
   background: image-url('background-gray.png') 0px 0px no-repeat;
   position: absolute;
   top: 0px;
 }
 
 div.screen {
-  height: 754px;
-  width: 332px;
+  height: 377px;
+  width: 166px;
   background: image-url('screen.png') 0px 0px no-repeat;
+  background-size: contain;
   position: absolute;
-  top: 78px;
-  left: 155px;
+  top: 41px;
+  left: 77px;
   z-index:100;
 }
 
 div.play_button {
   position: absolute;
-  height: 100px;
-  width: 86px;
-  bottom: 39px;
-  right: 66px;
+  height: 50px;
+  width: 43px;
+  bottom: 20px;
+  right: 33px;
   background: image-url('play.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.play_button_active {
   background: image-url('play_press.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.pause_button {
   position: absolute;
-  height: 100px;
-  width: 86px;
-  bottom: 39px;
-  left: 67px;
+  height: 50px;
+  width: 43px;
+  bottom: 20px;
+  left: 33.5px;
   background: image-url('pause.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.pause_button_active {
   background: image-url('pause_press.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.eject_button {
   position: absolute;
-  right: 65px;
-  top: 275px;
-  height: 102px;
-  width: 44px;
+  right: 33px;
+  top: 137px;
+  height: 51px;
+  width: 22px;
   background: image-url('eject.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.eject_button:hover {
   background: image-url('eject_press.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.load_panel {
   position: absolute;
-  top: 832px;
+  top: 416px;
 }
 
 div.load_panel_up {
-  width: 640px;
-  height: 12px;
+  width: 320px;
+  height: 6px;
   position: absolute;
   z-index:11;
   background: image-url('load_panel_up.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.load_panel_down {
-  width: 640px;
-  height: 22px;
-  top:12px;
+  width: 320px;
+  height: 11px;
+  top:6px;
   position: absolute;
   background: image-url('load_panel_down.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 /* Prevent the slideshow from flashing on load */
@@ -137,22 +147,11 @@ div.viewphoto {
 
 div.songphoto {
   position: absolute;
-  top: 6px;
+  top: 3px;
   left: 50%;
-  margin-left: -150px;
-  width: 300px;
-  height: 450px;
-  background: image-url('photo.png') 0px 0px no-repeat;
-}
-
-div.songphoto2 {
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  margin-left: -150px;
-  width: 300px;
-  height: 450px;
-  background: image-url('photo2.png') 0px 0px no-repeat;
+  margin-left: -75px;
+  width: 150px;
+  height: 225px;
 }
 
 div.gallery {
@@ -161,92 +160,100 @@ div.gallery {
 }
 
 div.page-number {
-  font-size: 28px;
+  font-size: 14px;
   color: white;
   position: absolute;
   width: 100%;
-  top: 25px;
+  top: 12px;
 }
 
 div.prev_button {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: -7px;
-  left: 169px;
-  background: image-url('prev.png') 40px 25px no-repeat;
+  width: 50px;
+  height: 50px;
+  top: -3px;
+  left: 85px;
+  background: image-url('prev.png') 20px 12px no-repeat;
+  background-size: 8px 25px;
   z-index:11;
 }
 
 div.next_button {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: -7px;
-  right: 169px;
-  background: image-url('next.png') 50px 25px no-repeat;
+  width: 50px;
+  height: 50px;
+  top: -3px;
+  right: 85px;
+  background: image-url('next.png') 25px 12px no-repeat;
+  background-size: 8px 25px;
   z-index:11;
 }
 
 div.border {
   position: absolute;
-  width: 98px;
-  height: 50px;
-  top: 16px;
-  left: 273px;
+  width: 49px;
+  height: 25px;
+  top: 8px;
+  left: 136px;
   background: image-url('border.png') 0px 0px no-repeat;
+  background-size: contain;
+  background-size: contain;
 }
 
 div.card {
   position: absolute;
-  width: 310px;
-  height: 526px;
-  top: 89px;
-  left: 165px;
+  width: 155px;
+  height: 263px;
+  top: 45px;
+  left: 82px;
   background: image-url('card.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.fasade {
   position: absolute;
   top:0px;
-  left:0px;
-  width: 300px;
-  height: 450px;
+  left:0.5px;
+  width: 150px;
+  height: 225px;
   background: image-url('fasade.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.play2_button {
   position: absolute;
-  width: 88px;
-  height: 88px;
-  top: 430px;
-  left: 279px;
+  width: 44px;
+  height: 44px;
+  top: 215px;
+  left: 140px;
   z-index:100;
   background: image-url('play2.png') 0px 0px no-repeat;
+  background-size: contain;
 }
 
 div.desc_panel {
-  width: 260px;
-  height: 150px;
+  width: 130px;
+  height: 75px;
   overflow:hidden;
   color: white;
-  font-size: 20px;
+  font-size: 10px;
   position: absolute;
-  bottom: 40px;
-  left: 183px;
+  bottom: 20px;
+  left: 91px;
   text-align:left;
 }
 
 div.title {
   text-align:left;
   width: 100%;
-  font-size: 24px;
-  height:36px;
+  font-size: 20px;
+  height:22px;
   
 }
 
 span.song_description{
-  max-height:50px;
+  max-height:25px;
+  font-size:10px;
   overflow: hidden;
   text-overflow:ellipsis;
 }
