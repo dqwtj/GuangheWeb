@@ -15,7 +15,7 @@
 		border-color: #ff7e00;
 		color: #ff7e00;
 	}
-	
+
 	hr {
 		border-top: 1px solid #aaaaaa;
 	}
@@ -23,6 +23,7 @@
 <%= simple_form_for(@code, :url => qrcode_path, :html => { :method => :put }, wrapper: :prepend) do |f| %>
 <div class="row">
 	<div class="col-md-12" style="text-align:center">
+		<div style="height:136px;width:100%;text-align:center;overflow:hidden">
 		<div class="qrcode_top"></div>
 	</div>
 	<div class="col-md-12" style="text-align:center">
