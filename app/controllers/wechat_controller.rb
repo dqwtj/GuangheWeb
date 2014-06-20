@@ -31,6 +31,7 @@ class WechatController < ApplicationController
         end
       end
     end
+    @code = Code.new
   end
   
   def player
