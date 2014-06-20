@@ -227,11 +227,12 @@ div.play2_button {
 
 div.desc_panel {
   width: 260px;
-  height: 200px;
+  height: 150px;
+  overflow:hidden;
   color: white;
   font-size: 20px;
   position: absolute;
-  bottom: -30px;
+  bottom: 40px;
   left: 183px;
   text-align:left;
 }
@@ -242,4 +243,10 @@ div.title {
   font-size: 24px;
   height:36px;
   
+}
+
+span.song_description{
+  max-height:50px;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
