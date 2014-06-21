@@ -147,12 +147,12 @@ div.viewphoto {
 
 div.songphoto {
   position: absolute;
-  top: 2px;
+  top: 3px;
   left: 50%;
   margin-left: -75px;
-  width: 151px;
+  width: 150px;
   height: 225px;
-  border-radius: 6px;
+  border-radius: 7px;
 }
 
 div.gallery {
@@ -203,12 +203,12 @@ div.border {
 
 div.card {
   position: absolute;
-  width: 155px;
+  width: 156px;
   height: 263px;
   top: 45px;
   left: 82px;
   background: image-url('card.png') 0px 0px no-repeat;
-  background-size: contain;
+  background-size: 156px 263px;
 }
 
 div.fasade {
