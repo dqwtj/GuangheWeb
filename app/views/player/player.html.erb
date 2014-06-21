@@ -48,7 +48,7 @@
 		</div>
 		<div class="player" style="display:none">
 			<div class="background" >
-				<div class="screen"></div>
+				<div class="screen"><marquee class="mq" id="player_title"  scrollamount="1">111</marquee></div>
 				<div class="play_button"></div>
 				<div class="pause_button"></div>
 				<div class="eject_button"></div>
@@ -124,7 +124,7 @@ var count = <%= @user.slots.count %>
 		$("div.player").show();
 		$("div.player").animate({
 			top : "0px"
-		}, 2000, function() {
+		}, 1000, function() {
 			soundManager.play($("#mp3-" + current).attr("id"));
 		$("div.play_button").toggleClass("play_button_active",true);
 		});
@@ -140,7 +140,7 @@ var count = <%= @user.slots.count %>
 		$("div.player").show();
 		$("div.player").animate({
 			top : "-450px"
-		}, 2000, function() {
+		}, 1000, function() {
 			$("div.player").hide();
 			$("div.remove_button").fadeIn(500);
 		});

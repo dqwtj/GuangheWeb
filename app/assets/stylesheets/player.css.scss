@@ -257,3 +257,12 @@ span.song_description{
   overflow: hidden;
   text-overflow:ellipsis;
 }
+
+marquee.mq {
+  position: absolute;
+  width: 100px;
+  bottom: 35px;
+  left: 33px;
+  marquee-speed:100;
+  -webkit-marquee-speed:100;
+}

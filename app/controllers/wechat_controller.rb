@@ -41,27 +41,27 @@ class WechatController < ApplicationController
   def getSongId(code)
     code = code.to_i
     if code == 0
-      return "539d3c13c205d47f9f000001"
+      return "53a4197ac205d4259a000002"
     elsif code == 1
-      return "539d3c13c205d47f9f000001"
+      return "53a41a84c205d4b7b6000003"
     elsif code == 2
-      return "539d3c13c205d47f9f000001"
+      return "53a41b39c205d481f6000002"
     elsif code == 3
-      return "539d3c13c205d47f9f000001"
+      return "53a41cd2c205d4b7b6000005"
     elsif code == 4
-      return "539d3c13c205d47f9f000001"
+      return "53a41dd8c205d481f6000004"
     elsif code == 5
-      return "539d3c13c205d47f9f000001"
+      return "53a41edcc205d481f6000006"
     elsif code == 6
-      return "539d3c13c205d47f9f000001"
+      return "53a41fefc205d4259a000005"
     elsif code == 7
-      return "539d3c13c205d47f9f000001"
+      return "53a4208cc205d4b7b6000008"
     elsif code == 8
-      return "539d3c13c205d47f9f000001"
+      return "53a4215cc205d4eed8000002"
     elsif code == 9
-      return "539d3c13c205d47f9f000001"
+      return "53a42203c205d4259a000007"
     else
-      return "535b56fff26afb1e41000002"
+      return "539d3c13c205d47f9f000001"
     end
   end
 end
