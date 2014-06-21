@@ -261,8 +261,7 @@ span.song_description{
 marquee.mq {
   position: absolute;
   width: 100px;
-  bottom: 35px;
+  bottom: 37px;
   left: 33px;
-  marquee-speed:100;
-  -webkit-marquee-speed:100;
+  font-size: 12px;
 }

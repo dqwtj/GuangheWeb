@@ -48,7 +48,7 @@
 		</div>
 		<div class="player" style="display:none">
 			<div class="background" >
-				<div class="screen"><marquee class="mq" id="player_title"  scrollamount="1">111</marquee></div>
+				<div class="screen"><marquee class="mq" id="player_title"  scrollamount="1"></marquee></div>
 				<div class="play_button"></div>
 				<div class="pause_button"></div>
 				<div class="eject_button"></div>
@@ -92,6 +92,7 @@ var count = <%= @user.slots.count %>
 
 				// Show start slide in log
 				$("#title").text($("#title-" + number).text());
+				$("#player_title").text($("#title-" + number).text());
 				$("#description").text($("#description-" + number).text());
 				$('#slidesjs-log .slidesjs-slide-number').text((number - 1) % count + 1);
 			},
@@ -111,6 +112,7 @@ var count = <%= @user.slots.count %>
 
 				// Change slide number on animation complete
 				$("#title").text($("#title-" + number).text());
+				$("#player_title").text($("#title-" + number).text());
 				$("#description").text($("#description-" + number).text());
 				$('#slidesjs-log .slidesjs-slide-number').text((number - 1) % count + 1);
 			}
