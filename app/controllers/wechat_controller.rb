@@ -3,8 +3,7 @@ class WechatController < ApplicationController
   def qrcode
     @code = Code.new
     userid = params[:uid]
-    userid = "539d3a4cc205d4bdd2000002" if userid == nil
-    session[:userid] = userid
+    session[:userid] = userid if userid != nil
     @user = User.find(session[:userid])
   end
   
