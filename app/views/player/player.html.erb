@@ -26,6 +26,9 @@
 					<div style="display:none" id="mp3-<%= index%>" class="mp3url">
 						<%= slot.card.song.mp3_url %>
 					</div>
+					<div style="display:none" id="id-<%= index%>">
+						<%= slot.card.song._id %>
+					</div>
 				</div>
 
 				<% end %>
@@ -48,7 +51,9 @@
 		</div>
 		<div class="player" style="display:none">
 			<div class="background" >
-				<div class="screen"><marquee class="mq" id="player_title"  scrollamount="1"></marquee></div>
+				<div class="screen">
+					<marquee class="mq" id="player_title"  scrollamount="1"></marquee>
+				</div>
 				<div class="play_button"></div>
 				<div class="pause_button"></div>
 				<div class="eject_button"></div>
@@ -128,13 +133,16 @@ var count = <%= @user.slots.count %>
 			top : "0px"
 		}, 1000, function() {
 			soundManager.play($("#mp3-" + current).attr("id"));
-		$("div.play_button").toggleClass("play_button_active",true);
+			$("div.play_button").toggleClass("play_button_active", true);
 		});
+		$.ajax({
+			url : "/playcount?id=" + $("#id-" + current).text()
+		}).done();
 	});
 
 	$("div.eject_button").click(function() {
-		$("div.play_button").toggleClass("play_button_active",false);
-		$("div.pause_button").toggleClass("pause_button_active",false);
+		$("div.play_button").toggleClass("play_button_active", false);
+		$("div.pause_button").toggleClass("pause_button_active", false);
 		soundManager.stop($("#mp3-" + current).attr("id"));
 		$("div.player").css({
 			top : "0px"
@@ -150,13 +158,13 @@ var count = <%= @user.slots.count %>
 	});
 	$("div.play_button").click(function() {
 		soundManager.resumeAll();
-		$("div.play_button").toggleClass("play_button_active",true);
-		$("div.pause_button").toggleClass("pause_button_active",false);
+		$("div.play_button").toggleClass("play_button_active", true);
+		$("div.pause_button").toggleClass("pause_button_active", false);
 	});
 	$("div.pause_button").click(function() {
 		soundManager.pauseAll();
-		$("div.play_button").toggleClass("play_button_active",false);
-		$("div.pause_button").toggleClass("pause_button_active",true);
+		$("div.play_button").toggleClass("play_button_active", false);
+		$("div.pause_button").toggleClass("pause_button_active", true);
 	}); 
 </script>
 <!-- End SlidesJS Required -->

@@ -9,6 +9,7 @@ WechatFans::Application.routes.draw do
   get 'qrcode' => 'wechat#qrcode'
   put 'qrcode' => 'wechat#qrcodev'
   get 'player' => 'player#player'
+  get 'playcount' => 'player#playcount'
   get 'idols/profile' => 'idols#profile'
   put 'idols/profile' => 'idols#update'
   resources :applies

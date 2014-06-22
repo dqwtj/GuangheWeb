@@ -5,6 +5,13 @@ class PlayerController < ApplicationController
     @user = User.find(session[:userid])
     if @user.slots.count == 0
       redirect_to qrcode_url
-    end 
+    end
+  end
+
+  def playcount
+    @song = Song.find(params[:id])
+    @song.add_one_playcount
+    @song.save
+    render :nothing => true
   end
 end

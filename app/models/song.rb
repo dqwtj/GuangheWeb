@@ -12,6 +12,7 @@ class Song
   field :level,      :type => Integer, :default => 0
   field :ticket
   field :sceneid
+  field :play_count, :default => 0
   
   has_many :contributions
   has_many :activities
@@ -20,6 +21,11 @@ class Song
   belongs_to :idol
   has_many :cards
   counter_cache :name => :idol, :inverse_of => :songs
+  
+  def add_one_playcount
+    self.inc(:play_count => 1)
+  end
+  
   def card_pic_url
     self.cardpicurl.blank? ? 'http://guanghe-photo.b0.upaiyun.com/avatar/4b7dca79dd618be9ea5c93edd1ed71a6.png!avatarsmall' : self.upyun_photo_url + self.cardpicurl + '!card'
   end
