@@ -71,6 +71,9 @@
 <script>
 	var current;
 $(document).ready(function() {
+	alert("width:" + $(window).width() + "###height:" + $(window).height());
+	var width = $(window).width();
+	var height = $(window).height();
 var count = <%= @user.slots.count %>
 	;
 	$("span.slidesjs-total-number").text(count);
@@ -86,6 +89,7 @@ var count = <%= @user.slots.count %>
 			});
 		},
 	});
+	
 	$('#slides').slidesjs({
 		width : 320,
 		height : 350,
@@ -123,6 +127,7 @@ var count = <%= @user.slots.count %>
 			}
 		}
 	});
+	
 	$("div.play2_button").click(function() {
 		$("div.remove_button").fadeOut(500);
 		$("div.player").css({
