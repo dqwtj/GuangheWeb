@@ -71,9 +71,6 @@
 <script>
 	var current;
 $(document).ready(function() {
-	alert("width:" + $(window).width() + "###height:" + $(window).height());
-	var width = $(window).width();
-	var height = $(window).height();
 var count = <%= @user.slots.count %>
 	;
 	$("span.slidesjs-total-number").text(count);
@@ -89,7 +86,7 @@ var count = <%= @user.slots.count %>
 			});
 		},
 	});
-	
+
 	$('#slides').slidesjs({
 		width : 320,
 		height : 350,
@@ -101,7 +98,7 @@ var count = <%= @user.slots.count %>
 
 				// Show start slide in log
 				$("#title").text($("#title-" + number).text());
-				$("#player_title").text($("#title-" + number).text());
+				$("#player_title").text($("#title-" + number).text() + "    " + $("#description-" + number).text());
 				$("#description").text($("#description-" + number).text());
 				$('#slidesjs-log .slidesjs-slide-number').text((number - 1) % count + 1);
 			},
@@ -121,13 +118,13 @@ var count = <%= @user.slots.count %>
 
 				// Change slide number on animation complete
 				$("#title").text($("#title-" + number).text());
-				$("#player_title").text($("#title-" + number).text());
+				$("#player_title").text($("#title-" + number).text() + "    " + $("#description-" + number).text());
 				$("#description").text($("#description-" + number).text());
 				$('#slidesjs-log .slidesjs-slide-number').text((number - 1) % count + 1);
 			}
 		}
 	});
-	
+
 	$("div.play2_button").click(function() {
 		$("div.remove_button").fadeOut(500);
 		$("div.player").css({

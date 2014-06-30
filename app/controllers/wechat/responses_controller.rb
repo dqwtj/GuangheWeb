@@ -23,12 +23,8 @@ class Wechat::ResponsesController < Wechat::ApplicationController
           render "qrcodeverify", :formats => :xml
         end
       elsif @action.event == "CLICK"
-        if @action.eventKey == "VINDEX"
-          render "goindex", :formats => :xml
-        elsif @action.eventKey == "VPLAYER"
+        if @action.eventKey == "VPLAYER"
           render "goplayer", :formats => :xml
-        elsif @action.eventKey == "VJOINUS"
-          render "gojoinus", :formats => :xml
         end
       end
     else
